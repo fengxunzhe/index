@@ -96,6 +96,28 @@
 四、字典dict{key，val}
 =
     1、常用方法
-    -
+-
+       clear() # 清除字典所有元素
+       
+       get(key) # 获取元素 通过key获取val值
+       
+       iteams() # 把字典中的元素以列表的形式输出为元组
+         #################      
+         data = {'python': 1,'GO': 2, 'java': 3 }
+         print(data.items())  # dict_items([('python', 1), ('GO', 2), ('java', 3)])
+         ################# 
+       
+       key() # 取key值
+       
+       value() # 取value值
+       
+       update(**argv) # 更新或者 添加字典元素
+         ################# 
+         data = {'python': 1,'GO': 2, 'java': 3 }
+         data.update({'python': 2, 'C++': 4})
+         print(data)  # {'python': 2, 'GO': 2, 'java': 3, 'C++': 4}
+         ################# 
+
+       
     
      
