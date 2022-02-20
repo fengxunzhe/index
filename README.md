@@ -118,6 +118,28 @@
          print(data)  # {'python': 2, 'GO': 2, 'java': 3, 'C++': 4}
          ################# 
 
-       
+五、类Class对象
+=
+    1、私有\公有属性和方法
+-
+       class student():
+          write = 1 # 公有属性
+          __write = 2 # 私有属性
+
+          def read(self):
+              print(self.write)  # 调用公有属性
+              print(self.__write)  # 调用私有属性
+              print(self.__read())  # 调用私有方法
+
+          def __read(self):
+              print(self.write)
+              print(self.__write)
+
+
+      stu = student() # 实例化类对象
+      print(stu.write)  # 外部可以调用类的方法和属性
+      print(stu.read())
+      print(stu.__read())  # ERROR 外部不能调用class的私有方法和属性
+
     
      
