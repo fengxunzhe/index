@@ -55,7 +55,7 @@
         print(data)  # data = ['AAA', 'BBB', 'CCC', '33', '44', 55, (6, 7)]
         #################     
      
-     index(str,start,end) #  str:要查找的字符串 start:起始查找位置(参考), end:结束查找的位置(参考)  返回数字
+     index(str,start,end) #  str:要查找的字符串 start:起始查找位置(参考), end:结束查找的位置(参考)  返回数字位置
      
      insert(index, obj)   # index：要插入的位置,obj：插入的对象(可结合index方法使用)
      
@@ -70,5 +70,26 @@
              data.remove('AAA') # 删除所有指定的元素 注: for x in y: y代表可迭代的对象，如list
          print(data)  # ['BBB', 'CCC']
          #################  
+         
+     reverse()  # 列表元素反转
      
+     sort(key, reverse)  #  列表排序 reverse:true反转结果，false:不反转结果
+         #################      
+         def t(x):
+            print("---", x)
+            return x[0]
+         data = ['AAA', 'BBB', 'CCC', "AAA"]
+         data.sort(key=t)
+         print(data) # ['AAA', 'AAA', 'BBB', 'CCC']
+         #################  
+
+三、元组(只能读不能改动)
+=
+    count(val) # 元组中元素出现的次数，返回num
+        #################  
+        data = (1, 2, 3, 1, 4)
+        print(data.count(1)) # 2
+        ################# 
+        
+    index(str,start,end) #  str:要查找的字符串 start:起始查找位置(参考), end:结束查找的位置(参考)  返回数字位置
      
