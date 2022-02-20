@@ -188,3 +188,33 @@
           for num, x in zip(list, list2):
               print(num)
           ################# 
+    
+七、with open实现原理
+=
+     class A:
+        def __enter__(self):
+            print("进入enter")
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            print(exc_tb, exc_val, exc_type)
+            print("进入了exit")
+            self.file.close() 
+
+        def file_open(self):
+            self.file = open('test.txt', mode='w', encoding='utf-8')
+            self.file.write("testtesttest")
+            print("写入完成")
+
+
+    with A() as a:
+        print("进入了with内部作用域")
+        a.file_open()
+    ========================================
+    进入enter
+    进入了with内部作用域
+    写入完成
+    None None None
+    进入了exit
+    ========================================
+    总结: 首先进入__enter__方法,   然后"进入了with内部作用域"，  再打开文件file_open，写入完成后;  进入__exit__方法
