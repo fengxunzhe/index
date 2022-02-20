@@ -344,3 +344,18 @@
       print("19、" + "--->>>", "os.path.getSize(path)获取文件大小")
       print("20、" + "--->>>", "os.path.join(dir,path)组合目录与文件")
       print("21、" + "--->>>", "os.kill(10844,signal.SIGKILL)杀死进程")
+
+Python编程技巧汇总：
+=
+    1、if  else的简单写法
+        return bytes[:-2] if bytes.endswith('.0') else bytes + "bytes"
+        # if bytes.endswith('.0')  判断butes是否以.0结尾, 是的话直接反返回bytes+"bytes",  反之，从后往前取倒数第2个之前的数据
+        
+    2、python字符串加r、f、b的作用
+        r:   r"\n\n\n\n”　　# 表示一个普通生字符串 \n\n\n\n，而不表示换行了
+        f:   格式化字符串    name = zhangsan  print(f'{name} done in) 此处会自动把name替换成zhangsan
+        b:   b" "前缀表示：后面字符串是bytes 类型。 response = b'<h1>Hello World!</h1>'     # b' ' 表示这是一个 bytes 对象
+       
+       
+       
+       
