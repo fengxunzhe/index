@@ -143,7 +143,7 @@
 
    总结: 类 的私有公有方法和属性在 类的内部可以随便调用, 在类的外部 私有属性和方法不能调用 
 
-六、for循环常用方法:enumerate   和  zip
+六、for循环实现原理常用方法:enumerate   和  zip
 =
     1、enumerate()   循环的时候自带计数(从0开始)
           ################# 
@@ -188,6 +188,39 @@
           for num, x in zip(list, list2):
               print(num)
           ################# 
+          
+     3、for循环实现原理
+          class a:
+              def __init__(self, num):
+                  print("1111111")
+                  self.num = num
+
+              def __next__(self):
+                  print("3333333333")
+                  if self.num <= 0:
+                      raise StopIteration
+                  self.num -= 1
+                  return self.num
+
+              def __iter__(self):
+                  print("222222222")
+                  return self
+
+
+          for x in a(10):
+              print("----------")
+              print(x)
+          输出结果：
+          1111111
+          222222222
+          3333333333
+          ----------
+          9
+          3333333333
+          ----------
+          8
+          3333333333
+          总结：先init  然后iter.然后next
     
 七、with open实现原理
 =
