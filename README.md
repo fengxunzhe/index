@@ -37,7 +37,38 @@
          data[index]  # 通过位置取出第index之后的文本
          #################
 
-二、列表操作List
+二、列表操作List（list可出现重复元素）
 =
-  
-
+  1、常用方法
+-
+     append(obj) # 列表加入一个obj对象
+         #################
+         data = ['AAA', 'BBB', 'CCC']
+         data.append(3)
+         print(data)  # data = ['AAA', 'BBB', 'CCC', 3]
+         #################
+         
+     extend(list) #  列表加入多个远程:list:迭代器list
+        #################     
+        data = ['AAA', 'BBB', 'CCC']
+        data.extend(["33", "44", 55, (6, 7)])
+        print(data)  # data = ['AAA', 'BBB', 'CCC', '33', '44', 55, (6, 7)]
+        #################     
+     
+     index(str,start,end) #  str:要查找的字符串 start:起始查找位置(参考), end:结束查找的位置(参考)  返回数字
+     
+     insert(index, obj)   # index：要插入的位置,obj：插入的对象(可结合index方法使用)
+     
+     pop() # 把列表中最后一个元素删除 ， 返回删除的元素
+     
+     remove(val) # 删除指定元素第一次出现的时候删除,不会全部删除
+     
+     count(val)  # 返回一个元素在列表中出现的次数   
+         #################  
+         data = ['AAA', 'BBB', 'CCC', "AAA"]
+         for x in range(0, data.count('AAA')):
+             data.remove('AAA') # 删除所有指定的元素 注: for x in y: y代表可迭代的对象，如list
+         print(data)  # ['BBB', 'CCC']
+         #################  
+     
+     
