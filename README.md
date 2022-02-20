@@ -218,3 +218,16 @@
     进入了exit
     ========================================
     总结: 首先进入__enter__方法,   然后"进入了with内部作用域"，  再打开文件file_open，写入完成后;  进入__exit__方法
+    
+八、参数args  和 参数kwargs
+=
+    def foo(one, *args, **kwargs):
+      print(one)  # 1
+
+      print(args)  # (2, 3, 4, 5, [1, 2, 3], (22, 33)) # 返回元组集合
+      print(*args)  # 2 3 4 5 [1, 2, 3] (22, 33)  # 元组去掉了
+
+      print(kwargs)  # {'kk': 2, 's': 3}  返回dict字典
+      print(*kwargs) # kk s  只返回key
+
+    foo(1, 2, 3, 4, 5,[1,2,3],(22,33),kk=2,s=3)    
