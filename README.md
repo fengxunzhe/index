@@ -142,4 +142,49 @@
       print(stu.__read())  # ERROR 外部不能调用class的私有方法和属性
 
    总结: 类 的私有公有方法和属性在 类的内部可以随便调用, 在类的外部 私有属性和方法不能调用 
-     
+
+六、for循环常用方法:enumerate   和  zip
+=
+    1、enumerate()   循环的时候自带计数(从0开始)
+          ################# 
+             原始方法：
+              list = ['GO', 'JAVA', 'C++', 'PYTHON', 'JAVASCRIPT']
+              i = 0
+              for x in list:
+                  print(i, x)
+                  i += 1
+              输出：
+              0 GO
+              1 JAVA
+              2 C++
+              3 PYTHON
+              4 JAVASCRIPT
+          ################# 
+          ################# 
+             改进方法：
+              list = ['GO', 'JAVA', 'C++', 'PYTHON', 'JAVASCRIPT']
+              for num, x in enumerate(list):
+                 print(num, x)
+              输出：
+              0 GO
+              1 JAVA
+              2 C++
+              3 PYTHON
+              4 JAVASCRIPT
+          ################# 
+          
+     2、zip()  # 合并多个list
+          #################     
+          >>>a = [1,2,3]
+          >>> b = [4,5,6]
+          >>> c = [4,5,6,7,8]
+          >>> zipped = zip(a,b)     # 打包为元组的列表
+          [(1, 4), (2, 5), (3, 6)]
+          >>> zip(a,c)              # 元素个数与最短的列表一致
+          [(1, 4), (2, 5), (3, 6)]
+          ################# 
+          list = ['GO', 'JAVA', 'C++', 'PYTHON', 'JAVASCRIPT']
+          list2 = ['111', '222', '333']
+          for num, x in zip(list, list2):
+              print(num)
+          ################# 
