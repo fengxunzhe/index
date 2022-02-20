@@ -264,3 +264,83 @@
       print(*kwargs) # kk s  只返回key
 
     foo(1, 2, 3, 4, 5,[1,2,3],(22,33),kk=2,s=3)    
+九、OS模块
+=
+      # -*- coding：utf-8 -*-
+      import os
+
+      # 1 获取当前文件所在路径C:\Users\AF\PycharmProjects\pythonProject3  --->>> os.getcwd()
+      print("1、" + "--->>>", os.getcwd())
+
+      # 2 获取指定路径下所有的文件;默认不写参数为C:\Users\AF\PycharmProjects\pythonProject3   --->>>os.listdir(str:path)  返回list列表
+      print("2、" + "--->>>", os.listdir())
+      print("2、" + "--->>>", os.listdir("C:/Users/AF/Desktop/tl"))
+
+      # 3 使用os.removedirs()函数删除多级目录。os.removdirs(path)删除的目录必须是空目录
+      print("3、" + "--->>>", "os.removdirs(path)删除一个空目录")
+      print("3、" + "--->>>", "os.remove(path, str),删除指定目录文件,注意一定是一个文件")
+      try:
+          os.removedirs(r"C:/Users/AF/Desktop/mrp/test")
+      except IOError:
+          print("Error: 没有找到文件或读取文件失败")
+      else:
+          print("内容写入文件成功")
+
+      # 4 os.path.isfile(path) 检测路径是否是一个文件,注意不是文件夹
+      print("4、" + "--->>>", os.path.isfile('C:/Users/AF/Desktop/tl/TL_3_9.apk'))
+
+      # 5 os.path.isdir() 检测路径是否是一个目录
+      print("5、" + "--->>>", os.path.isdir("C:/Users/AF/Desktop/tl/"))
+
+      # 6 os.path.isabs()  是否是绝对路径
+      print("6、" + "--->>>", os.path.isabs("C:/Users/AF/Desktop/tl/"))
+      print("6、" + "--->>>", os.path.isabs("./Desktop/tl/"))
+
+      # 7 os.path.exists 检测路径是否存在
+      print("7、" + "--->>>", os.path.exists("./Desktop/tl/"))
+      print("7、" + "--->>>", os.path.exists("C:/Users/AF/Desktop/tl/"))
+
+      # 8 os.path.split("C:/Users/AF/Desktop/tl/TL_3_9.apk") 取出路径最后一个/后的文件  此处返回TL_3_9.apk  返回元组
+      print("8、" + "--->>>", os.path.split("C:/Users/AF/Desktop/tl/"))
+      print("8、" + "--->>>", os.path.split("C:/Users/AF/Desktop/tl/TL_3_9.apk"))
+      print("8、" + "--->>>", "os.path.splitext取出文件格式", os.path.splitext("C:/Users/AF/Desktop/tl/TL_3_9.apk"))
+
+      # 9 print(os.path.dirname("C:/Users/AF/Desktop/tl/TL_3_9.apk"))  获取文件的路径  去掉文件名，返回目录 __file__表示了当前文件的path
+      print("9、" + "--->>>", __file__ + "--去掉文件名，返回目录", os.path.dirname(__file__))
+
+      # 10 返回文件最后的文件名 os.path.basename('D:/file/cat/dog.jpg')  return dog.jpg
+      print("10、" + "--->>>", os.path.basename('D:/file/cat/dog.jpg'))
+
+      # 11 执行命令行 os.system("cmd")
+      print("11、" + "--->>>", "执行命令行", "os.system('cmd')")
+
+      # 12 获取指定系统环境变量os.getenv("PATH")
+      print("12、" + "--->>>", "获取指定系统环境变量", os.getenv("PATH"))
+
+      # 13 获取所有系统环境变量os.environ
+      print("13、" + "--->>>", "获取所有系统环境变量", os.environ)
+
+      # 14 设置临时系统环境变量os.environ.setdefault("", "")
+      print("14、" + "--->>>", "设置临时系统环境变量", os.environ.setdefault("HOME", "/home/test"))
+
+      # 15 文件重命名
+      # 列出目录
+      print("15、" + "--->>>", "文件重命名", "目录为: %s" % os.listdir(os.getcwd()))
+      try:
+          os.rename("转换后的素描图.jpg", "转换ss的素描图.jpg")
+      except IOError:
+          print("15、" + "--->>>", "文件重命名", "Error: 没有找到文件或读取文件失败")
+
+      # 16 创建多级目录  os.makedirs(r"C:/test/test")  os.mkdir(str)
+      try:
+          print("16、" + "--->>>", "创建多级/单级目录", os.makedirs(r"C:/test/test"))
+      except IOError:
+          print("16、" + "--->>>", "创建多级/单级目录", "Error: 没有找到文件或读取文件失败")
+
+      # 17 获取文件属性os.stat(str)
+      print("17、" + "--->>>", "获取文件属性", os.stat(path="C:/Users/AF/Desktop/tl/TL_3_9.apk"))
+
+      print("18、" + "--->>>", "os.chmod()修改文件权限")
+      print("19、" + "--->>>", "os.path.getSize(path)获取文件大小")
+      print("20、" + "--->>>", "os.path.join(dir,path)组合目录与文件")
+      print("21、" + "--->>>", "os.kill(10844,signal.SIGKILL)杀死进程")
