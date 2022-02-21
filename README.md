@@ -452,7 +452,7 @@
         adata = A()
         print(adata.say()) # 调用A的方法
 
-十三、描述符： __get（）__ ; __set()__；__del()__
+十三、描述符： __get（）__' ; __set()__；__del()__
  =
     在 Python 中，允许把一个类属性，托管给一个类，这个属性就是一个「描述符」
     具体见：https://zhuanlan.zhihu.com/p/336926012
@@ -496,6 +496,20 @@
 
     data = A(10, 20)
     print(data.cs)
+
+十六、__str（）__、__repr()__方法
+=
+    class A:
+        def __str__(self):
+            print("这个是object对象")
+
+        def __repr__(self):
+            print("这个是object对象22")
+
+    data = A()
+    print(data)   # <__main__.A object at 0x0000019C9EEDEF10> 此处按道理应该输出一个object+内存地址信息，但若是类实现了__repr__或者__str__方法;
+    那么就会输出该方法的内容,此处输出【这个是object对象/这个是object对象22】  str默认覆盖repr
+
 
 
    
