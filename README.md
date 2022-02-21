@@ -469,7 +469,33 @@
       print(setattr(A, 'val', '888'))  # 对象A中val赋值888
       print(getattr(A, 'val')) # 取出对象A中val的值
 
+十五、property 方法当属性使用
+=
+  1、常规调用方法
+  
+    class A:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
 
+        def cs(self):
+            return self.x * self.y
+
+    data = A(10, 20)
+    print(data.cs())
+    
+  2、property调用
+    class A:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+
+        @property
+        def cs(self):
+            return self.x * self.y
+
+    data = A(10, 20)
+    print(data.cs)
 
 
    
