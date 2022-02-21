@@ -510,8 +510,46 @@
     print(data)   # <__main__.A object at 0x0000019C9EEDEF10> 此处按道理应该输出一个object+内存地址信息，但若是类实现了__repr__或者__str__方法;
     那么就会输出该方法的内容,此处输出【这个是object对象/这个是object对象22】  str默认覆盖repr
 
+十七、不可变对象修改 及 __new()__方法的使用
+=
+    不可变对象: int 、string、元组 --->>>> 当值改变时, 内存地址也发生变化
+    可变对象  ：list列表、dict字典 --->>>> 当值改变时, 内存地址不发生变化; 列表 字典可以append加入
+    
+    万物皆对象：此处以int为例; 尝试修改
+    class A(int):  # 继承int对象
+    
+    def __init__(self, val, name):
+        self.val = val   # 1、赋值 999
+        self.name = name   # 1、赋值 fengxunzhe
+
+        super(A, self).__init__(val)  # 2、调用int方法的__init__方法,该方法传入一个参数,此处传入 999 修改init方法，报错  (因为self是不可变对象,要在self形成之前即cls改变才行)
 
 
+    data = A(999, 'fengxunzhe') # 1、赋值
+    print(data) 
+    print(data.val)  # 取值val
+    print(data.name)  # 取值name
+    
+    输出报错信息:TypeError: 'str' object cannot be interpreted as an integer
+    
+    ================
+    正确修改：对象  首先调用 __new__方法， 然后调用__init__方法
+    class A(int):  # 继承int对象
+    def __new__(cls, val, name):  # 形成self的过程
+        instance = super().__new__(cls, val)  # 修改int的new方法; 此处instance相当于self    
+        instance.val = val
+        instance.name = name
+        return instance  # 返回实例化  self
+
+
+    data = A(999, 'fengxunzhe')
+    print(data.val)
+    print(data.name)
+
+    
+    
+    
+    
    
 Python编程技巧汇总：
 =
