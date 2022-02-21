@@ -456,8 +456,20 @@
  =
     在 Python 中，允许把一个类属性，托管给一个类，这个属性就是一个「描述符」
     具体见：https://zhuanlan.zhihu.com/p/336926012
+    
 
-          
+十四、属性操作hasattr、setattr、getattr
+=
+      class A:
+      def __init__(self, val):
+          self.val = val
+      print(hasattr(A, 'val'))  # False 对象A中val是否有值
+      print(hasattr(A(999), 'val'))  # True 对象A先赋值val,在判断是否有值
+      print(hasattr(A, '__init__'))  # 对象A中是否存在init方法
+      print(setattr(A, 'val', '888'))  # 对象A中val赋值888
+      print(getattr(A, 'val')) # 取出对象A中val的值
+
+
 
 
    
