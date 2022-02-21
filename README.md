@@ -375,15 +375,67 @@
           if __name__ == '__main__':
               demo = outer(5)
               demo()  # 15
-
-      闭包条件：
+           闭包条件：
       　　 1 在一个外函数中定义了一个内函数。
 
            2 内函数里运用了外函数的临时变量。
 
            3 并且外函数的返回值是内函数的引用。
-    
+             
+十一、异常
+=
+    1、普通异常
+-
+        try:
+            a = 1
+            print(b)
+        except Exception as e:
+            print("异常代码", e)
+        finally:
+            print("一定会执行")
+       输出====================
+           异常代码 name 'b' is not defined
+           一定会执行
+           
+     2、自定义异常
+-
+        class MyException(BaseException):
+            def __init__(self):
+                print("实例化之后运行")
 
+            def __str__(self):
+                return "这是自定义的异常"
+
+        # 在一个函数中我们可以通过Raise主动抛出我们的异常
+        raise MyException
+        输出==================
+        Traceback (most recent call last):
+            File "<input>", line 1, in <module>
+            File "C:\Program Files\JetBrains\PyCharm 2020.3.5\plugins\python\helpers\pydev\_pydev_bundle\pydev_umd.py", line 197, in runfile
+              pydev_imports.execfile(filename, global_vars, local_vars)  # execute the script
+            File "C:\Program Files\JetBrains\PyCharm 2020.3.5\plugins\python\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+              exec(compile(contents+"\n", file, 'exec'), glob, loc)
+            File "C:/Users/AF/PycharmProjects/pythonProject3/1.py", line 10, in <module>
+              raise MyException
+          MyException: 这是自定义的异常
+          
+      3、捕获输出异常信息
+-
+        import traceback
+
+          try:
+              print(a)
+          except Exception as e:
+              print(e)
+              print(traceback.print_exc(file=open('error.txt', 'a+', encoding='utf8'))) # 把异常错误信息输出到error.txt文件中     
+ 
+
+       
+
+          
+
+
+   
 Python编程技巧汇总：
 =
     1、if  else的简单写法
