@@ -452,7 +452,10 @@
         adata = A()
         print(adata.say()) # 调用A的方法
 
-
+十三、描述符： __get（）__ ; __set()__；__del()__
+ =
+    在 Python 中，允许把一个类属性，托管给一个类，这个属性就是一个「描述符」
+    具体见：https://zhuanlan.zhihu.com/p/336926012
 
           
 
