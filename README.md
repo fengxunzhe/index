@@ -536,7 +536,7 @@
     正确修改：对象  首先调用 __new__方法， 然后调用__init__方法
     class A(int):  # 继承int对象
     def __new__(cls, val, name):  # 形成self的过程
-        instance = super().__new__(cls, val)  # 修改int的new方法; 此处instance相当于self    
+        instance = super().__new__(cls, val)  # 实例化int的new方法，赋值int; 此处instance相当于self    
         instance.val = val
         instance.name = name
         return instance  # 返回实例化  self
