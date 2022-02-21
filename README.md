@@ -430,7 +430,29 @@
               print(traceback.print_exc(file=open('error.txt', 'a+', encoding='utf8'))) # 把异常错误信息输出到error.txt文件中     
  
 
-       
+十二、super()方法
+=
+        class A():
+        def say(self):
+            print('A的 say方法')
+
+
+        class B(A):
+            def say(self):
+                print("B的 say方法")
+
+
+        class C(B):
+            def say(self):
+                print("C的 say方法")
+                super(C, self).say()  # 调用父类B的方法
+
+        data = C()
+        print(data.say())  # 调用C的方法
+        adata = A()
+        print(adata.say()) # 调用A的方法
+
+
 
           
 
