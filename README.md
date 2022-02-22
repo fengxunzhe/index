@@ -546,8 +546,47 @@
     print(data.val)
     print(data.name)
 
+十八、迭代器、生成器、装饰器
+=
+  1、迭代器
+-
+    迭代器指的就是【支持迭代的容器】，更确切的说，是支持迭代的容器类对象，这里的容器可以是列表、元组等这些 Python 提供的基础容器，也可以是自定义的容器类对象，只要该容器支持迭代即可。
+    所有迭代器对象都有__next__(self)：返回容器的下一个元素。 __iter__(self)：该方法返回一个迭代器（iterator）
+                                                 
     
+    1.1、支持迭代的容器操作:List   首先【转换为迭代器对象】  iter(可迭代的对象)
+        data = ['JAVA', 'PHP', 'C++', 'PYTHON']
+        lst = iter(data)  #  转换为迭代器对象
+        print(lst)  # <list_iterator object at 0x00000218C2825320> 返回迭代器对象
+        print(lst.__next__())  # 迭代器对象具有的方法  JAVA
+        print(lst.__next__())  # php
     
+    1.2、自定义【迭代器对象】(首先实现所有迭代器对象具有的方法 __iter__(self), __next__(self) 
+        class listDemo:
+            def __init__(self):
+                self.__date=[]
+                self.__step = 0
+            def __next__(self):
+                if self.__step <= 0:
+                    raise StopIteration
+                self.__step -= 1
+                #返回下一个元素
+                return self.__date[self.__step]
+            def __iter__(self):
+                #实例对象本身就是迭代器对象，因此直接返回 self 即可
+                return self
+            #添加元素
+            def __setitem__(self,key,value):
+                self.__date.insert(key,value)
+                self.__step += 1
+            mylist = listDemo()
+            mylist[0]=1
+            mylist[1]=2
+            for i in mylist:
+                print (i)
+      
+    2、生成器
+-
     
     
    
