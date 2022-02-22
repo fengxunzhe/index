@@ -587,9 +587,32 @@
       
   2、生成器
 -
-        生成器本质上也是迭代器
+        生成器本质上也是迭代器;以 list 容器为例，在使用该容器迭代一组数据时，必须事先将所有数据存储到容器中，才能开始迭代；而生成器却不同，它可以实现在迭代的同时生成元素。
+        也就是说，对于可以用某种算法推算得到的多个数据，生成器并不会一次性生成它们，而是【什么时候需要，才什么时候生成】。
     
-    
+    def intNum():
+        print("开始执行")
+        for i in range(5):
+            yield i
+            print("继续执行")
+        num = intNum()
+        print(num)  # <generator object intNum at 0x00000186B2EFA390>  返回生成器对象
+        print(num.__next__())  # 0  第一次输出 0  yield相当于return 返回 0
+        print(num.__next__())  # 1  第二次输出1  从上一次yield后继续执行  返回1 
+        print(num.__next__())  # 2  第三次输出1  从上一次yield后继续执行  返回2
+    输出:
+        <generator object intNum at 0x0000017AB5DEA390>
+        开始执行
+        0
+        继续执行
+        1
+        继续执行
+        2
+        
+  3、装饰器     
+-
+  
+      
    
 Python编程技巧汇总：
 =
