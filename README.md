@@ -611,8 +611,55 @@
         
   3、装饰器     
 -
-  
+     #funA 作为装饰器函数
+      def funA(fn):
+          print("C语言中文网")
+          fn() # 执行传入的fn参数
+          print("http://c.biancheng.net")
+          return "装饰器函数的返回值"
+      @funA
+      def funB():
+          print("学习 Python")
+          return "xxxxx"
+      print(funB)
       
+     输出结果：
+       C语言中文网
+       学习 Python
+       http://c.biancheng.net
+       装饰器函数的返回值
+       
+    A装饰B，相当于在B的外边套一层装饰物,把B当参数传入;将 A() 函数执行完成的返回值反馈回  B(print(funB))；函数本身不返回
+    ==============
+      带参数装饰器：
+      def funA(fn):
+    # 定义一个嵌套函数
+        def say(arc):
+            print("Python教程:",arc)
+        return say
+        
+        @funA
+        def funB(arc):
+            print("funB():", a)
+        funB("http://c.biancheng.net/python")
+        
+        输出：Python教程: http://c.biancheng.net/python
+        
+        上面相当于：
+          def funA(fn):
+            # 定义一个嵌套函数
+            def say(arc):
+                print("Python教程:",arc)
+            return say
+
+         def funB(arc):
+             print("funB():", a)
+
+         funB = funA(funB)
+         funB("http://c.biancheng.net/python")
+         输出：Python教程: http://c.biancheng.net/python
+         
+    参考：http://c.biancheng.net/view/2270.html
    
 Python编程技巧汇总：
 =
