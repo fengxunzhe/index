@@ -34,4 +34,22 @@
       var res = test()
       默认情况下相当的函数,后面的会替换前面的，所有此时执行的是第二个test方法
     
-三、
+三、循环语句
+    和pyhton没有区别
+    for while continue if else break
+
+四、swithch语句
+    switch(arguments[0]){
+        case 1:
+            console.log("")
+            break
+        case 2:
+            console.log("XX")
+            break
+    }
+
+五、三元运算符
+    表达式？test_test_success:test_failed
+    判断表达式是否成立.成立执行test_success,否则执行test_failed
+    
+    
