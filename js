@@ -33,6 +33,9 @@
 
       var res = test()
       默认情况下相当的函数,后面的会替换前面的，所有此时执行的是第二个test方法
+  
+  3、匿名函数
+    func:function(){} 函数名是func
     
 三、循环语句
     和pyhton没有区别
@@ -55,7 +58,7 @@
 六、对象
     创建对象：三种创建对象方式
     1、var a = new object()
-    2、var test = {} // test是个对象
+    2、var test = {可以是任何类型的参数} // test是个对象
     3、var a = Object.create(Object) 
     =================================================================================
     对象都具有的方法：
@@ -105,3 +108,52 @@
       !function(){
           console.log("tests")
       }();
+
+八、数组
+    1、数组的两种创建方法
+        var name = [1, 2,3 ,4]
+        var naem = new Array(1,2,3,4)
+    2、确认对象是否为数组
+        Arrar.isArray()
+    3、栈方法(先入后出)
+        Array.push()
+        Array.pop()
+    4、队列方法
+        Array.shift()  从头部删除 
+        Array.unshift() 从头部添加，哪里空就填哪
+    5、排序方法
+        Array.reverse() 倒过来
+        Array.sort()  排序
+    6、常用方法
+        concat 合并
+        slice 切分
+        spllice 删除
+        indexOf 定位
+    
+九、时间
+    var da = new Date()  # 返回时间对象Thu Feb 24 2022 21:07:47 GMT+0800 (中国标准时间)
+
+    var da = Date.now()  # 返回时间戳
+    
+    Data.UTF(年，月，日，时，分，秒)  # 基于UTC国际协调时间
+    
+    toDateString  返回星期、年月日
+    toTimeString 返回时分秒，时区
+    
+ 10、this
+    this想当于python中的self
+    
+    var xjb = {
+        "name":"XX",
+         age：100
+        func:function(){  ### 匿名函数
+          console.log("===")
+        }
+        func2:function(){
+          this.func(),  ### this调用父类的方法
+          this.name-666
+        }
+    }
+    
+    
+    
