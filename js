@@ -57,7 +57,7 @@
     1、var a = new object()
     2、var test = {} // test是个对象
     3、var a = Object.create(Object) 
-    =================================
+    =================================================================================
     对象都具有的方法：
     constructor   构造方法
     hasOwnProperty  是否具有某个属性
@@ -66,5 +66,27 @@
     toLocalStrig  根据当地语言转化字符串
     toString  转化为字符串
     valueOf   返回内容,通常和toString一致
-    
-    
+    ================================================================================
+    var a = new Oject() # 创建对象a
+    a = 1000 # 
+    a.na = 10000
+    a.sa = "javascript learning"
+    console.log(a)
+    {na: 10000, sa: 'javascript learning'}
+      en: 10000
+      [[Prototype]]: Object
+      constructor: ƒ Object()  # 构造方法
+      hasOwnProperty: ƒ hasOwnProperty()  是否具有某个属性a.hasOwnProperty("sa")
+      isPrototypeOf: ƒ isPrototypeOf()
+      propertyIsEnumerable: ƒ propertyIsEnumerable()
+      toLocaleString: ƒ toLocaleString()
+      toString: ƒ toString()
+      valueOf: ƒ valueOf()
+      __defineGetter__: ƒ __defineGetter__()
+      __defineSetter__: ƒ __defineSetter__()
+      __lookupGetter__: ƒ __lookupGetter__()
+      __lookupSetter__: ƒ __lookupSetter__()
+      __proto__: (...)
+      get __proto__: ƒ __proto__()
+      set __proto__: ƒ __proto__()
+      ================================================================================
