@@ -1,4 +1,4 @@
-一、js的数据类型
+一、【js的数据类型】
 
   undefined 、null、  boolean、 string、 number
   1、undefined 和 null 的区别
@@ -14,7 +14,7 @@
 
     null表示变量已经声明，且变量赋值为null（为空），所以为结果为null。
   
-二、函数
+二、【函数】
   1、函数可以通过arguments取出传入的参数
       function test(){
         console.log(atguments[0])  # 取出第一个参数
@@ -37,11 +37,11 @@
   3、匿名函数
     func:function(){} 函数名是func
     
-三、循环语句
+三、【循环语句】
     和pyhton没有区别
     for while continue if else break
 
-四、swithch语句
+四、【swithch语句】
     switch(arguments[0]){
         case 1:
             console.log("")
@@ -51,11 +51,11 @@
             break
     }
 
-五、三元运算符
+五、【三元运算符】
     表达式？test_test_success:test_failed
     判断表达式是否成立.成立执行test_success,否则执行test_failed
     
-六、对象
+六、【对象】
     创建对象：三种创建对象方式
     1、var a = new object()
     2、var test = {可以是任何类型的参数} // test是个对象
@@ -94,7 +94,7 @@
       set __proto__: ƒ __proto__()
       ================================================================================
       
-七、自执行函数：
+七、【自执行函数】：
     把扣下来的js代码放在以下代码块中可直接执行
     1、
       (function(){
@@ -109,7 +109,7 @@
           console.log("tests")
       }();
 
-八、数组
+八、【数组】
     1、数组的两种创建方法
         var name = [1, 2,3 ,4]
         var naem = new Array(1,2,3,4)
@@ -130,7 +130,7 @@
         spllice 删除
         indexOf 定位
     
-九、时间
+九、【时间】
     var da = new Date()  # 返回时间对象Thu Feb 24 2022 21:07:47 GMT+0800 (中国标准时间)
 
     var da = Date.now()  # 返回时间戳
@@ -140,7 +140,7 @@
     toDateString  返回星期、年月日
     toTimeString 返回时分秒，时区
     
- 10、this
+ 10、【this】
     this想当于python中的self
     
     var xjb = {
