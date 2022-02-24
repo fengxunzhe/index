@@ -101,7 +101,7 @@
        
        get(key) # 获取元素 通过key获取val值
        
-       iteams() # 把字典中的元素以列表的形式输出为元组
+       iteams() # 把字典中的元素以元组的形式输出为列表
          #################      
          data = {'python': 1,'GO': 2, 'java': 3 }
          print(data.items())  # dict_items([('python', 1), ('GO', 2), ('java', 3)])
