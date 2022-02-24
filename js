@@ -90,3 +90,18 @@
       get __proto__: ƒ __proto__()
       set __proto__: ƒ __proto__()
       ================================================================================
+      
+七、自执行函数：
+    把扣下来的js代码放在以下代码块中可直接执行
+    1、
+      (function(){
+      console.log("test");
+      })();
+    2、
+      (function(){
+          console.log("test");
+      }());
+    3、
+      !function(){
+          console.log("tests")
+      }();
