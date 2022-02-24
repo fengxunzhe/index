@@ -52,4 +52,19 @@
     表达式？test_test_success:test_failed
     判断表达式是否成立.成立执行test_success,否则执行test_failed
     
+六、对象
+    创建对象：三种创建对象方式
+    1、var a = new object()
+    2、var test = {} // test是个对象
+    3、var a = Object.create(Object) 
+    =================================
+    对象都具有的方法：
+    constructor   构造方法
+    hasOwnProperty  是否具有某个属性
+    W.isPrototypeOf(0) W是否在传入的O的继承链上
+    propertyIsEnumerable  属性是否可以迭代
+    toLocalStrig  根据当地语言转化字符串
+    toString  转化为字符串
+    valueOf   返回内容,通常和toString一致
+    
     
