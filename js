@@ -140,7 +140,7 @@
     toDateString  返回星期、年月日
     toTimeString 返回时分秒，时区
     
- 10、【this】
+十、【this】
     this想当于python中的self
     
     var xjb = {
@@ -155,5 +155,25 @@
         }
     }
     
+
+十一、【简单数据类型  和  复杂数据类型】
+     1、简单数据类型
+        string、bool、null、underfind、number、symbo
+        简单数据类型  定义一个变量  就开辟出一段内存空间
+          如：var a= 1
+              var b =2
+              a = 2
+              此时a ，b各指向一个内存地址
+      2、复杂数据类型
+        Object 是复杂数据类型
+        var a = {} # a是object
+        b = a # b指向a也是object，共享一段内存地址
+        
+十二、 【原型链】
+    1、prototype
+      每个函数都有prototype属性
+      每个函数的protopyte指向的原型对象(空object)；可以理解为object是该函数的父类
     
-    
+    2、__proto__
+        
+        
