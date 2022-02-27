@@ -177,3 +177,19 @@
     2、__proto__
         
         
+
+十三、【内存漫游】
+      1、环境搭建  cmd下运行
+        first-->>>npm install -g anyproxy express body-parser shelljs crypto cheerio @babel/core @babel/types @babel/generator     # 管理员cmd下安装，否则报错
+        Second-->>> anyproxy ca 可查倒web端口是8002    # 安装证书，用于捕捉http/https包； 如找不到anyproxy，可在node安装包里面将其添加到环境变量
+        Three--->>> 浏览器访问127.0.0.1:8002下载CA证书  并点击安装，选受信任的根证书颁发机构
+        Forth--->>> 百度安装谷歌浏览器插件proxy switchyomega     # https://github.com/FelisCatus/SwitchyOmega/releases
+              解决Chrome无法从该网站添加应用、扩展程序或脚本
+                1、先将后缀名为.crx的扩展文件的后缀名改为.rar。
+                2、然后将这个压缩文件解压到新文件夹中。
+                3、打开Chrome浏览器的扩展程序，更多工具 -> 扩展程序
+                4、打开开发者模式，然后点击“加载已解压的扩展程序”。
+                5、此时定位到之前解压的文件夹即可。
+                  
+        Five--->>> 打开  proxy switchyomega  新建情景模式 --- 代理模式 --- ip为127.0.0.1  port为源码里默认为10087
+        
