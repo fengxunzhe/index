@@ -48,7 +48,7 @@
          print(data)  # data = ['AAA', 'BBB', 'CCC', 3]
          #################
          
-     extend(list) #  列表加入多个远程:list:迭代器list
+     extend(list) #  列表加入多个list:迭代器list
         #################     
         data = ['AAA', 'BBB', 'CCC']
         data.extend(["33", "44", 55, (6, 7)])
