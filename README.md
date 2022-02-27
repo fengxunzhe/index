@@ -664,6 +664,7 @@
 十九、字典的__setitem__和__getitem__方法
 =
       1、setitem方法############
+      
       class MyException(BaseException):
           def __str__(self):
               print("key重复异常")
@@ -683,8 +684,25 @@
       mdic['ONE'] = "git"
       print(mdic)
       # 异常key重复异常
-      
+############################################################################################################      
       1、getitem方法############
+      
+      class Mydct(dict):
+      def __init__(self, default):
+          self.default = default
+          super(Mydct, self).__init__()  # hook完之后调用父类方法，如果要返回值，要用return，此处不输出值给用户看
+
+      def __getitem__(self, item):
+          if item not in self.keys():  # 没有找到key
+              return self.default  # 没有找到key 返回一个报错信息，通过自己定义的default传入 ，因为要显示给用户看，所有加return
+          return super(Mydct, self).__getitem__(item)  # 找到key   返回正常结果
+
+
+      mdic = Mydct("这是报错信息")
+      mdic['ONE'] = "python"
+      print(mdic['ONE'])  # 找到了，返回python
+      print(mdic['ONE111'])  # 没找到，返回这是报错信息
+
     
 二十、递归
 =
