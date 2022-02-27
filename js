@@ -193,3 +193,6 @@
                   
         Five--->>> 打开  proxy switchyomega  新建情景模式 --- 代理模式 --- ip为127.0.0.1  port为源码里默认为10087
         
+        项目地址：https://github.com/CC11001100/ast-hook-for-js-RE
+        
+      2、   
