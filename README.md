@@ -660,7 +660,43 @@
          输出：Python教程: http://c.biancheng.net/python
          
     参考：http://c.biancheng.net/view/2270.html
-   
+    
+十九、字典的__setitem__和__getitem__方法
+=
+      1、setitem方法############
+      class MyException(BaseException):
+          def __str__(self):
+              print("key重复异常")
+
+
+      class Mydct(dict):
+          def __setitem__(self, key, value):
+              if key in self.keys():  # 判断是否重复
+                  raise MyException
+
+              super(Mydct, self).__setitem__(key, value)  # 相当于前面HOOK了。后面返回
+
+
+      mdic = Mydct()
+      mdic['ONE'] = "python"
+      # ONE python
+      mdic['ONE'] = "git"
+      print(mdic)
+      # 异常key重复异常
+      
+      1、getitem方法############
+    
+二十、递归
+=
+    1、自己调用自己  2、递归一定要有终止方法
+        def myFor(mum):
+            if num <= 0：
+                return
+            return myFor(num-1)
+            
+        myFor(100)
+        
+        
 Python编程技巧汇总：
 =
     1、if  else的简单写法
