@@ -485,6 +485,7 @@
     print(data.cs())
     
   2、property调用
+  
     class A:
         def __init__(self, x, y):
             self.x = x
