@@ -801,7 +801,76 @@
         t = threading.Thread(target=fool, args=())  #  守护线程：主线程结束，子线程也强制结束回收资源
         t.setDaemon(True)  # 设置子线程为守护线程，等待主线程结束，子线程也结束
         t.run()
-        
+
+二十二、RE模块 - 正则表达式
+=
+    正则表达式学习
+-
+      1、. 匹配除换行符以外的任意字符 
+      2、* 匹配0次或更多次 
+      3、? 匹配0次或1次
+      4、\w 匹配字母或数字下划线 \s 匹配任意的空白符 \d 匹配数字
+      5、\W 匹配非字母或数字下划线 \S 匹配非空白符 \D 匹配非数字
+      6、^ 匹配字符串的开始 $ 匹配字符串的结束
+      7、a|b 匹配a或b
+      8、.* 贪婪匹配 9、.*?惰性匹配
+      ###############################################################
+          import re
+
+          if __name__ == '__main__':
+
+              ###########################   【re.findall()  和  re.finditer()方法 】     ##########################
+
+              data = re.findall(r'\d+', "DSAHDSAJHDNA100025SFSD2572727")
+              # 参数1：正则表达式，参数2:待匹配的数据   匹配字符串中所有符合正则的内容,返回字符串列表
+              print(data)
+              # ['100025', '2572727']
+
+              data = re.finditer(r'\d+', "DSAHDSAJHDNA100025SFSD2572727")
+              # 参数1：正则表达式，参数2:待匹配的数据   匹配字符串中所有符合正则的内容,返回迭代器
+              print(data)
+              # <callable_iterator object at 0x0000020095982CF8>
+              for x in data:
+                  print(x)  # <re.Match object; span=(12, 18), match='100025'>  <re.Match object; span=(12, 18), match='100025'>
+                  print(x.group())  # 100025   2572727
+
+
+              ###########################   【re.search()  和  re.match()方法 】    ##########################
+
+              data = re.search(r'\d+', "DSAHDSAJHDNA100025SFSD2572727")  # 全文匹配，只取第一次匹配到的
+              # 参数1：正则表达式，参数2:待匹配的数据   找到一个数据就返回,返match对象,相当于迭代器中的单个数据
+              print(data)  # <re.Match object; span=(12, 18), match='100025'>
+              print(data.group())  # 100025
+
+              data = re.match(r'\d+', "DSAHDSAJHDNA100025SFSD2572727")   # 匹配以数字开头的，相当于^\d+
+              print(data)
+
+             ###########################   【re.compile()  】    ##########################
+
+              # 预加载正则表达式
+
+              print("预加载正则表达式")
+              res = re.compile(r"\d+")
+              print(res)
+              data = res.findall("DSAHDSAJHDNA100025SFSD2572727")
+              print(data)
+
+              data_string = """
+                  class="item-target1" href="https://blog.csdn.net/qq_33333333/category_10250849.html" title="MySQL1"
+                  class="item-target2" href="https://blog.csdn.net/qq_44544444/category_10250849.html" title="MySQL2"
+                  class="item-target3" href="https://blog.csdn.net/qq_55555555/category_10250849.html" title="MySQL3"
+              """
+
+              res = re.compile(r'class=(.*?) href=(?P<link>.*?) title=(.*?)', re.S)  # .不匹配换行符,re.S 代表.匹配换行符
+              # 通过?P<link>设置定位.通过group(定位符) 定位
+
+              data = res.finditer(data_string)
+              print(data)  # <callable_iterator object at 0x00000245AA656B00>
+              for y in data:
+                  print(y.group("link"))
+                  
+                  
+
 Python编程技巧汇总：
 =
     1、if  else的简单写法
