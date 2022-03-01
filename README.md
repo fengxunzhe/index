@@ -716,8 +716,9 @@
  
  
  二十一、多线程
- =
+=
     1、普通多线程   join 代表线程同步
+-
           import threading
           def fool():
               for x in range(10000):
@@ -740,6 +741,7 @@
           print("game  over")
     
     2、CPU密集型和IO密集型
+-
     
         最近在看Python的多线程，经常我们会听到老手说：“python下多线程是鸡肋，推荐使用多进程！”，但是为什么这么说呢？
         
