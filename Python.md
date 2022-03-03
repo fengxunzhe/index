@@ -869,7 +869,87 @@
               for y in data:
                   print(y.group("link"))
                   
-                  
+
+二十三、数据清洗
+=
+    ①、BS4
+-
+        安装：pip install bs4 lxml
+
+              <div class="box Pinterest-li Pinterest-li1 is_col2_0" score="125843" 492px; top: 767px;" p-enter-time="" timeout_id="" onclick="stop_play(this, 1);">
+                          <div class="templ-new">
+                                          <div class="templ-new-background"></div>
+                                          <div class="templ-new-text">新</div>
+                          </div>
+                          <div class="top-btn">
+                                         <span class="online-edit " _c="2874"><i class="iconfont"></i>在线编辑</span>
+                                                  <a alt="简约大气早安祝福问候摄影图海报" title="简约大气早安祝福问候摄影图海报" class="detail" rel="nofollow" onclick="doLogin(this);pv_edit(this);cache_edit(this)" link="https://818ps.com/jump?url=Ly91ZS44MThwcy5jb20vP3BpY0lkPTUxOTAxNjAmb3JpZ2luPXRwbF9zZWFyY2gmcHJhbT1leUpyWlhsM2IzSmtJam9pSWl3aVkyeGhjM05mYVdRaU9tNTFiR3dzSW5KdmRYUmxYMmxrSWpvaU1UWTBOakk1T1RNMk9UYzNOaklpTENKeWIzVjBaU0k2SWpFc015d2lMQ0poWm5SbGNsOXliM1YwWlNJNklqRXNNeUlzSW5KbFptVnlaWElpT2lJbE1rWnpaV0Z5WTJndWFIUnRiQ0o5" id_pv="5190160" target="_blank" _c="8" a8="ti=5190160&amp;i0="></a>
+                                      <a target="_blank" href="/pic/5190160.html" class="shej-btn fl" id="tpl_detail" rel="nofollow" data-id="5190160" kid_1="1" kid_2="286" page_num="" title="简约大气早安祝福问候摄影图海报" _c="60" a8="ti=5190160">
+                                          <i class="iconfont"></i>
+                                                  </a>
+                                                  <a onclick="fav(this)" a_id="5190160" id="tpl_fav" href="javascript:void(0)" rel="nofollow" class="shouc-btn fr vr5190160" _c="1036">
+                                                    <i class="iconfont"></i>
+                                                  </a>
+                          </div>
+                                    <a alt="简约大气早安祝福问候摄影图海报" title="简约大气早安祝福问候摄影图海报" class="detail" target="_blank" link="https://818ps.com/jump?url=Ly91ZS44MThwcy5jb20vP3BpY0lkPTUxOTAxNjAmb3JpZ2luPXRwbF9zZWFyY2gmcHJhbT1leUpyWlhsM2IzSmtJam9pSWl3aVkyeGhjM05mYVdRaU9tNTFiR3dzSW5KdmRYUmxYMmxrSWpvaU1UWTBOakk1T1RNMk9UYzNOaklpTENKeWIzVjBaU0k2SWpFc015d2lMQ0poWm5SbGNsOXliM1YwWlNJNklqRXNNeUlzSW5KbFptVnlaWElpT2lJbE1rWnpaV0Z5WTJndWFIUnRiQ0o5" onclick="doLogin(this);pv_edit(this);cache_edit(this)" id_pv="5190160" rel="nofollow" _c="8" a8="ti=5190160">
+                                                         <div class="min-img" has-ajax="0" style="width:216px;height:384px">
+                                                                       <img style="width: 216px; height: 384px; display: block;" class="lazy" alt="简约大气早安祝福问候摄影图海报" title="简约大气早安祝福问候摄影图海报" src="//img.tuguaishou.com/ips_templ_preview/w432_q100/94/1f/d0/lg_5190160_1646156219_621e59bbc6393.jpg?auth_key=2278684800-0-0-b1b2a4ad70214356797859ef2c98cf41" data-original="//img.tuguaishou.com/ips_templ_preview/w432_q100/94/1f/d0/lg_5190160_1646156219_621e59bbc6393.jpg?auth_key=2278684800-0-0-b1b2a4ad70214356797859ef2c98cf41" data-original-2x="//img.tuguaishou.com/ips_templ_preview/w432_q100/94/1f/d0/lg_5190160_1646156219_621e59bbc6393.jpg?auth_key=2278684800-0-0-b1b2a4ad70214356797859ef2c98cf41" img-original="//img.tuguaishou.com/ips_templ_preview/w216_q100/94/1f/d0/lg_5190160_1646156219_621e59bbc6393.jpg?auth_key=2278684800-0-0-80c2d081e523e17c719fd600ed50f63d" gif-original="//img.tuguaishou.com/ips_templ_preview/w216_q100/94/1f/d0/lg_5190160_1646156219_621e59bbc6393.jpg!w216?auth_key=2278684800-0-0-9019cdd4448d49cd192c5be51b194f50&amp;v=1554825700">
+                                                         </div>
+                                    </a>
+                                  <p class="fl title-box">
+                                                                                          <span class="copyrightBtn_tip_box copyrightBtn_tip_box1">
+                                              <span class="copyrightBtn_tip_box_save" _c="4155" a8="i0=1">正版</span>
+                                              <span class="copyrightBtn_tip" attr_id="5190160" _c="4156" a8="i0=1">正版授权原创<i class="iconfont"></i></span></span>
+                                                                                      <a class="open-detail" href="/pic/5190160.html" target="_blank">
+                                          <strong>简约大气早安祝福问候摄影图海报</strong>
+                                      </a>
+                                  </p>
+                          </div>
+
+              【案例：取title】
+
+              bs = BeautifulSoup(resp.text, 'lxml') # 加载lxml解析器
+              list = bs.select('div.box div a img') # 加载div的class是box的容器,  接着加载下面的div a  img标签
+              
+              
+    ②、Xpath
+-
+        import requests
+        from lxml import etree   # 从lxml导入etree类
+
+        if __name__ == '__main__':
+            # etree = etree.parse('本地html路径')  #  实例etree对象
+            # etree2 = etree.HTML('访问返回的源码')  #  实例etree对象
+            proxies = {
+                "http": "http://172.21.1.30:8080",
+                "https": "http://172.21.1.30:8080"
+            }
+            resp = requests.get('http://www.baidu.com', proxies=proxies)
+            etree2 = etree.HTML(resp.text)
+            print(etree2)  # <Element html at 0x13bc5bae4c8>  #  返回etree实例对象
+
+           #####################################################################
+                              【xpath表达式】
+
+           1、 / : 代表是从根节点开始，表示的是一个层级
+            如:  title
+                    head
+                       body
+                          text
+                 此处的根节点就是title，最前面的节点,代表当前层级
+
+           2、// :  表示多个层级
+            如:  /title/head/body/text   相等于   /title//text   相等于  //text  可直接跳过中间的head/body
+
+
+           3、属性定位
+            //div[@class='xxx']  多个div可定位到div下面class属性为xxx的div
+
+           4、//*  选取文档中的所有元素
+           5、//title[@classs='']  选取所有带有title属下面class属性为xxx的对象   
+
+            
+
 
 Python编程技巧汇总：
 =
