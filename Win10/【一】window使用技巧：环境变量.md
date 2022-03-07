@@ -3,3 +3,4 @@
                          2、我们新建变量，然后将变量添加到PATH 里同样可以找到
                          
   如：
+      ![imag](https://github.com/fengxunzhe/index/tree/main/Win10)
