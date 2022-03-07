@@ -4,3 +4,5 @@
                          
   如：
       ![imag](https://github.com/fengxunzhe/index/blob/main/Win10/1.png)
+      
+ 然后在PATH 中 加入NODE_PATH即可
