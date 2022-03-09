@@ -949,7 +949,19 @@
            5、//title[@classs='']  选取所有带有title属下面class属性为xxx的对象   
 
             
+三十四、编码
+=
+    1、URL编码
+-   
+        from urllib.parse import quote,unquote  
 
+        baseURL = "https://www.shixiseng.com/interns?keyword=python&page=1&city=%E5%85%A8%E5%9B%BD&type=intern"
+
+
+        print(quote("URL编码"))  # URL%E7%BC%96%E7%A0%81
+        print(unquote(baseURL))  # https://www.shixiseng.com/interns?keyword=python&page=1&city=全国&type=intern    
+
+  
 
 Python编程技巧汇总：
 =
