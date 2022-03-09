@@ -949,7 +949,7 @@
            5、//title[@classs='']  选取所有带有title属下面class属性为xxx的对象   
 
             
-三十四、编码
+二十四、编码
 =
     1、URL编码
 -   
