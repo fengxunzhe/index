@@ -104,4 +104,24 @@
                       allowed_domains = ['baidu.com']
                       start_urls = ['http://baidu.com/']
                      
-           
+##### 2.3、新建爬虫文件example.py分析
+            import scrapy
+            
+            class ExampleSpider(scrapy.Spider): # 继承scrapy.Spider方法
+                name = 'example'  # 项目启动的唯一识别码，多个项目的话对应name启动
+                allowed_domains = ['example.com'] # 允许爬取的
+                start_urls = ['http://example.com/']  # 项目启动首先爬取的
+
+                def parse(self, response):  # respon接受返回的内容
+                    pass
+         
+##### 2.4、项目启动
+            scrapy crawl example   项目启动的唯一识别码 启动项目
+            scrapy crawl test
+            
+##### 2.5、测试
+            新建两个爬虫文件
+            scrapy genspider example example.com
+            scrapy genspider test  baidu.com
+            
+
