@@ -172,20 +172,25 @@
                   }
                   
 
-            # AUTOTHROTTLE_START_DELAY = 5
-            # The maximum download delay to be set in case of high latencies
-            # AUTOTHROTTLE_MAX_DELAY = 60
-            # The average number of requests Scrapy should be sending in parallel to
-            # each remote server
-            # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
-            # Enable showing throttling stats for every response received:
-            # AUTOTHROTTLE_DEBUG = False
+            --  AUTOTHROTTLE_START_DELAY = 5 # #起始延迟
 
-            # HTTPCACHE_ENABLED = True
-            # HTTPCACHE_EXPIRATION_SECS = 0
-            # HTTPCACHE_DIR = 'httpcache'
-            # HTTPCACHE_IGNORE_HTTP_CODES = []
-            # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'     
+            --  AUTOTHROTTLE_MAX_DELAY = 60 # 最大延迟
+
+            --  AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0  #每秒并发请求数的平均值，不能高于 CONCURRENT_REQUESTS_PER_DOMAIN或CONCURRENT_REQUESTS_PER_IP，
+                        调高了则吞吐量增大强奸目标站点，调低了则对目标站点更加”礼貌“
+                        #每个特定的时间点，scrapy并发请求的数目都可能高于或低于该值，这是爬虫视图达到的建议值而不是硬限制
+
+            --  AUTOTHROTTLE_DEBUG = False # 调试
+
+            --  HTTPCACHE_ENABLED = True  # 是否启用缓存策略
+            
+            --  HTTPCACHE_EXPIRATION_SECS = 0   缓存超时时间
+            
+            --  HTTPCACHE_DIR = 'httpcache'  # 缓存保存路径
+            
+            --  HTTPCACHE_IGNORE_HTTP_CODES = []  # 缓存忽略的Http状态码
+            
+            --  HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'     # 缓存存储的插件 
                   
                   
                   
