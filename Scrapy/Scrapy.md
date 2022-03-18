@@ -136,7 +136,8 @@
             
             --  NEWSPIDER_MODULE = 'myspilder.Testspiders'-->>> 使用genspider命令创建的文件夹存放在哪个路径     
                   如：scrapy genspider test baidu.com  创建的test.py文件在Testspiders下面
-            
+![imag](https://github.com/fengxunzhe/index/blob/main/Scrapy/img/test02.png)   
+
             --  USER_AGENT = 'myspilder (+http://www.yourdomain.com)'   # USER_AGENT 参数
             
             --  ROBOTSTXT_OBEY = True   # 是否遵循robots协议抓取，True只能抓取rebots的数据
