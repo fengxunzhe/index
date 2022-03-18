@@ -1,6 +1,6 @@
-### 1、新建项目：scrapy startproject xjb
+### 一、新建项目：scrapy startproject xjb
 
-### 2、目录结构
+### 二、目录结构
       xjb---
         ├── xjb
         │   ├── __init__.py
@@ -18,7 +18,7 @@
        tems.py 文件 ：此文件俗称模型文件，就是存放字段的文件，定义字段名称，以自己的任意形式存取数据
        pipelines.py 管道文件 ：def process_item为固定写法，当数据交给管道文件处理时，在此文件下
        
-### 2、执行流程
+### 三、执行流程
 ##### 2.1、新建项目
 
             D:\ast-hook-for-js-RE-master>cd demo   
@@ -124,4 +124,27 @@
             scrapy genspider example example.com
             scrapy genspider test  baidu.com
 ![imag](https://github.com/fengxunzhe/index/blob/main/Scrapy/img/test01.png)           
+
+### 四、Scrapy项目文件解析
+
+##### 4.1、settings文件
+            --  BOT_NAME = 'myspilder'
+            
+            --  SPIDER_MODULES = ['myspilder.spiders'] --->>>scrapy crawl xxx 执行的爬虫在哪个路径下查找，返回列表
+            
+                  如：scrapy genspider test baidu.com  会从SPIDER_MODULES列表中找爬虫文件是否存在，此处不存在，报错
+                      SPIDER_MODULES = ['myspilder.spiders','myspilder.Testspiders'] ，此处存在，正常运行
+            
+            --  NEWSPIDER_MODULE = 'myspilder.Testspiders'-->>> 使用genspider命令创建的文件夹存放在哪个路径
+            
+                  如：scrapy genspider test baidu.com  创建的test.py文件在Testspiders下面
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+
+
 
