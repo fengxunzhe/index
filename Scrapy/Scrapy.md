@@ -130,18 +130,61 @@
 ##### 4.1、settings文件
             --  BOT_NAME = 'myspilder'
             
-            --  SPIDER_MODULES = ['myspilder.spiders'] --->>>scrapy crawl test爬虫执行首先查找该列表中是否存在ID为test的py文件
-            
+            --  SPIDER_MODULES = ['myspilder.spiders'] --->>>scrapy crawl test爬虫执行首先查找该列表中是否存在ID为test的py文件           
                   如：scrapy genspider test baidu.com  会从SPIDER_MODULES列表中找爬虫文件是否存在，此处不存在，报错
                       SPIDER_MODULES = ['myspilder.spiders','myspilder.Testspiders'] ，此处存在，正常运行
             
-            --  NEWSPIDER_MODULE = 'myspilder.Testspiders'-->>> 使用genspider命令创建的文件夹存放在哪个路径
-            
+            --  NEWSPIDER_MODULE = 'myspilder.Testspiders'-->>> 使用genspider命令创建的文件夹存放在哪个路径     
                   如：scrapy genspider test baidu.com  创建的test.py文件在Testspiders下面
+            
+            --  USER_AGENT = 'myspilder (+http://www.yourdomain.com)'   # USER_AGENT 参数
+            
+            --  ROBOTSTXT_OBEY = True   # 是否遵循robots协议抓取，True只能抓取rebots的数据
+            
+            --  CONCURRENT_REQUESTS = 32    # 下载器总共最大处理的并发请求数,默认值16
+            
+            --  DOWNLOAD_DELAY = 3   # 下载延迟
+            
+            --  CONCURRENT_REQUESTS_PER_DOMAIN = 16   # 每个域名能够被执行的最大并发请求数目，默认值8
+            
+            --  CONCURRENT_REQUESTS_PER_IP = 16   # 能够被单个IP处理的并发请求数，默认值0，代表无限制
+            
+            --  COOKIES_ENABLED = False    # 是否支持cookie，cookiejar进行操作cookie，默认开启
+            
+            --  TELNETCONSOLE_ENABLED = False   # Telnet用于查看当前爬虫的信息，操作爬虫等...使用telnet ip port ，然后通过命令操作
+            
+            --  DEFAULT_REQUEST_HEADERS = {    # 协议头
+                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                     'Accept-Language': 'en',
+                   }
+                   
+            --  SPIDER_MIDDLEWARES = {   # 中间件
+                      'myspilder.middlewares.MyspilderSpiderMiddleware': 543,
+                  }
                   
+            --  DOWNLOADER_MIDDLEWARES = { # 下载中间件
+                      'myspilder.middlewares.MyspilderDownloaderMiddleware': 543,
+                  }
+            
+            --  ITEM_PIPELINES = {  # 管道
+                      'myspilder.pipelines.MyspilderPipeline': 300,
+                  }
                   
-                  
-                  
+
+            # AUTOTHROTTLE_START_DELAY = 5
+            # The maximum download delay to be set in case of high latencies
+            # AUTOTHROTTLE_MAX_DELAY = 60
+            # The average number of requests Scrapy should be sending in parallel to
+            # each remote server
+            # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+            # Enable showing throttling stats for every response received:
+            # AUTOTHROTTLE_DEBUG = False
+
+            # HTTPCACHE_ENABLED = True
+            # HTTPCACHE_EXPIRATION_SECS = 0
+            # HTTPCACHE_DIR = 'httpcache'
+            # HTTPCACHE_IGNORE_HTTP_CODES = []
+            # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'     
                   
                   
                   
