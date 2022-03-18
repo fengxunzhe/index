@@ -130,7 +130,7 @@
 ##### 4.1、settings文件
             --  BOT_NAME = 'myspilder'
             
-            --  SPIDER_MODULES = ['myspilder.spiders'] --->>>scrapy crawl xxx 执行的爬虫在哪个路径下查找，返回列表
+            --  SPIDER_MODULES = ['myspilder.spiders'] --->>>scrapy crawl test爬虫执行首先查找该列表中是否存在ID为test的py文件
             
                   如：scrapy genspider test baidu.com  会从SPIDER_MODULES列表中找爬虫文件是否存在，此处不存在，报错
                       SPIDER_MODULES = ['myspilder.spiders','myspilder.Testspiders'] ，此处存在，正常运行
