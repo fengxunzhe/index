@@ -123,5 +123,5 @@
             新建两个爬虫文件
             scrapy genspider example example.com
             scrapy genspider test  baidu.com
-            
+![imag](https://github.com/fengxunzhe/index/blob/main/Scrapy/img/test01.png)           
 
