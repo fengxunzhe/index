@@ -78,3 +78,30 @@
                         SPIDER_MODULES = ['myspilder.spiders']
                         NEWSPIDER_MODULE = 'myspilder.spiders'
            
+           问题2、scrapy genspider example example.com的含义
+           
+                  D:\ast-hook-for-js-RE-master\demo\myspilder>scrapy genspider example example.com
+                  Created spider 'example' using template 'basic' in module:
+                  myspilder.spiders.example
+           
+                 答：genspider用于生成爬虫，与startproject不同的是，它只是生成爬虫模块文件，而startproject是生成整个scrapy项目。默认使用basic模板，
+                 使用-l参数可以查看所有可用的模板
+
+                  scrapy genspider -l 查看scrapy创建爬虫文件可用的母版
+                        Available templates: 母版说明 　
+                               basic　　 　　创建基础爬虫文件
+                               crawl　　　　 创建自动爬虫文件 　　
+                               csvfeed　　 创建爬取csv数据爬虫文件
+                               xmlfeed　　　 创建爬取xml数据爬虫文件
+                               
+                     example 是生成的文件example.py，也是项目的唯一识别码
+                     example.com 是要爬取的域名
+                  ---------------------------------   
+                  scrapy genspider test  baidu.com   对应的test.py文件   
+                  ---------------------------------   
+                  class TestSpider(scrapy.Spider):
+                      name = 'test'
+                      allowed_domains = ['baidu.com']
+                      start_urls = ['http://baidu.com/']
+                     
+           
