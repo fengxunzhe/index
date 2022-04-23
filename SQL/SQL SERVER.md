@@ -56,6 +56,28 @@
 #### 4、查询数据库(查)
 	EXECSP_HELPDB test01；
 	
+## 四、数据类型
+	SQL Server类型       C#类型
+       bit                   bool
+       tinyint               byte
+      smallint               short
+        int                  int
+       bigint                long
+       real                  float
+       float                 double
+       money                 decimal
+       decimal              decimal
+      datetime              DateTime
+       char                 string
+       varchar              string
+       nchar                string
+      nvarchar              string
+       text                 string
+      ntext                 string
+     image                  byte[]
+     binary                 byte[]
+      uniqueidentifier      Guid
+	
 	
 	
 	
