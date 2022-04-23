@@ -12,7 +12,7 @@
 	4、支持对称多处理器结构、存储过程、ODBC，具有自主的SQL语句
 
 ## 三、数据库操作(database)
-	1、新建数据库
+#### 1、新建数据库(增)
 	CREATE DATABASE test01 ON Primary(
 		NAME=test01,
 		FILENAME='C:\DATA\test01.mdf',
@@ -36,5 +36,39 @@
 		MAXSIZE=50, 文件最大多少;
 		FILEGROWTH=5 每次增长多少；
 	**/
+	
+#### 2、删除数据库(删)
+	DROP DATABASE 数据库1，数据库2；
+	DROP DATABASE 数据库1；
+	
+#### 3、修改数据库(改)
+	3.1、修改数据库名
+		ALTER DATABASE test01 MODIFY NAME=test02;
+	
+	3.2、修改数据库参数(文件名不能修改，修改之后会新建个数据库文件)
+		ALTER DATABASE test01 MODIFY FILE(
+			NAME=testxxxx,
+			SIZE=80,
+			MAXSIZE=50,
+			FILEGROWTH=5 
+		)
+
+#### 4、查询数据库(查)
+	EXECSP_HELPDB test01；
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
