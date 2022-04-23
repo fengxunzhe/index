@@ -11,9 +11,9 @@
 	3、强壮的事务处理功能，采用各种方法保证数据的完整性
 	4、支持对称多处理器结构、存储过程、ODBC，具有自主的SQL语句
 
-## 三、数据库操作
+## 三、数据库操作(database)
 	1、新建数据库
-	CREATE DATABASE test01 Primary ON(
+	CREATE DATABASE test01 ON Primary(
 		NAME=test01,
 		FILENAME='C:\DATA\test01.mdf',
 		SIZE=10,
@@ -27,4 +27,14 @@
 		MAXSIZE=50,
 		FILEGROWTH=5
 	)
-
+	/**
+		ON [PRIMARY]是表示表是建立在主文件组上。PRIMARY表示主文件组。如果没有指定默认文件组，则主文件组是默认文件组;
+		LOG ON 是表示表是建立log文件；
+		NAME=test01_log,  文件对应的name id，读取文件的时候调用该name
+		FILENAME= 文件存放的位置；
+		SIZE=10 文件大大小；
+		MAXSIZE=50, 文件最大多少;
+		FILEGROWTH=5 每次增长多少；
+	**/
+	
+	
