@@ -79,7 +79,7 @@
 	nchar 固定unicode字符串 nchar(n)  n取值1~4000
 	nvarchar 可变长度  nvarchar(n|max) n取值1~4000 
 	
-	
+## 五、表操作(table)
 	
 	
 	
