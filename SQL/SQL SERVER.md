@@ -57,32 +57,27 @@
 	EXECSP_HELPDB test01；
 	
 ## 四、数据类型
-	SQL Server类型       C#类型
-       bit                   bool
-       tinyint               byte
-      smallint               short
-        int                  int
-       bigint                long
-       real                  float
-       float                 double
-       money                 decimal
-       decimal              decimal
-      datetime              DateTime
-       char                 string
-       varchar              string
-       nchar                string
-      nvarchar              string
-       text                 string
-      ntext                 string
-     image                  byte[]
-     binary                 byte[]
-      uniqueidentifier      Guid
+#### 1、整数类型
+	tinyint   0~255   1字节
+	smaillint  (-32768 ~ 32767) 2字节
+	int  (-2^31 ~ 2^31)  4字节
+	bigint  (-2^63 ~ 2^63)  8字节
+
+#### 2、浮点数类型
+	float  
 	
+#### 3、时间类型
+	time    12:21:21.231334(时：分：秒.毫秒)
+	date    2022-04-26
+	smalldatetime   2022-04-26   12:21
+	datetime   2022-04-26   12:21:21.231
+	datetime2  2022-04-26   12:21:21.231334
 	
-	
-	
-	
-	
+#### 4、字符串类类型
+	char 固定长度 char(n)  n取值1~8000  (非Unicode)
+	varchar 可变长度  varchar(n|max) n取值1~8000  (非Unicode)
+	nchar 固定unicode字符串 nchar(n)  n取值1~4000
+	nvarchar 可变长度  nvarchar(n|max) n取值1~4000 
 	
 	
 	
