@@ -86,11 +86,27 @@
 		name varchar(10)  not null,  
 		age int null
 	)
+	
 
 #### 2、删除表操作(删)	
-	
+	DROP TABLE userinfo,......;
 	
 #### 3、修改表操作(改)	
+	EXEC sp_rename '表1'，'新表1';
+
+#### 4、查询表操作(查)	
+	SELECT * FROM USERINFO;   # 查询表信息
+
+## 六、字段操作(COIUMN)
+#### 1、添加字段(增)
+	ALTER TABLE USERINFO   # 添加xxx字段
+	ADD XXX varchar(50) not null;
+	
+#### 2、删除字段(删)
+	ALTER TABLE USERINFO
+	DROP COLUMN age;  # 删除age字段
+
+#### 3、修改字段(改)
 	3.1、更改表字段类型长度
 		ALTER TABLE USERINFO
 		ALTER COLUMN name varchar(100); # 修改name的长度从10到改为100
@@ -110,5 +126,9 @@
 	3.5、更改字段名称
 		ALTER TABLE USERINFO
 		EXEC sp_rename 'USERINFO.age','userage' ,'COLUMN';  # 将age字段修改为userage字段
+		
+#### 4、查询字段(查)	
+
+
 	
 	
