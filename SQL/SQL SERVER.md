@@ -106,5 +106,9 @@
 	3.4、更改字段为主键(主键唯一)
 		ALTER TABLE USERINFO 
 		ALTER COLUMN KID primary key(ID)   # 修改ID的字段为唯一主键
+		
+	3.5、更改字段名称
+		ALTER TABLE USERINFO
+		EXEC sp_rename 'USERINFO.age','userage' ,'COLUMN';  # 将age字段修改为userage字段
 	
 	
