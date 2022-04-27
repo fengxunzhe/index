@@ -80,12 +80,31 @@
 	nvarchar 可变长度  nvarchar(n|max) n取值1~4000 
 	
 ## 五、表操作(table)
+#### 1、创建表操作(增)
+	creat table userinfo(
+		ID int primary key not null,  # 主键
+		name varchar(10)  not null,  
+		age int null
+	)
+
+#### 2、删除表操作(删)	
 	
 	
+#### 3、修改表操作(改)	
+	3.1、更改表字段类型长度
+		ALTER TABLE USERINFO
+		ALTER COLUMN name varchar(100); # 修改name的长度从10到改为100
 	
+	3.2、更改表字段类型
+		ALTER TABLE USERINFO 
+		ALTER COLUMN name int；     # 修改name的字段类型
+		
+	3.3、更改表字段的约束(是否为空)
+		ALTER TABLE USERINFO  
+		ALTER COLUMN name null;    # 修改name的字段约束为可以为空
 	
-	
-	
-	
+	3.4、更改字段为主键(主键唯一)
+		ALTER TABLE USERINFO 
+		ALTER COLUMN KID primary key(ID)   # 修改ID的字段为唯一主键
 	
 	
