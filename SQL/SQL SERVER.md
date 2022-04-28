@@ -11,7 +11,7 @@
 	3、强壮的事务处理功能，采用各种方法保证数据的完整性
 	4、支持对称多处理器结构、存储过程、ODBC，具有自主的SQL语句
 
-## 三、数据库操作(database)
+## 三、数据库操作(database)--->>>CREATE(增)|DROP(删)|ALTER(改)|EXECSP_HELPDB(查)
 #### 1、新建数据库(增)
 	CREATE DATABASE test01 ON Primary(
 		NAME=test01,
