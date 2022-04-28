@@ -97,7 +97,7 @@
 #### 4、查询表操作(查)	
 	SELECT * FROM USERINFO;   # 查询表信息
 
-## 六、字段操作(COLUMN)
+## 六、字段操作(COLUMN)，针对表中已经定义好的字段
 #### 1、添加字段(增)
 	ALTER TABLE USERINFO   # 添加xxx字段
 	ADD XXX varchar(50) not null;
@@ -141,4 +141,12 @@
 	外键表示了两个关系之间的相互联系
 
 	ALTER table 次表 ADD CONSTRAIN Stu_Key FOREIGN KEY(次表字段) references 主表(主表字段)   # 次表字段 依赖于 主表字段
-	
+
+## 八、表操作(table-column),针对表中的内容;注意与字段(增删改查)操作的区别；前者针对字段的操作，后者针对表中内容的操作
+#### 1、增加表内容信息(增)
+
+#### 2、删除表内容信息(删)
+
+#### 3、改变表内容信息(改)
+
+#### 4、查询表内容信息(查)
