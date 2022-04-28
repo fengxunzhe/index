@@ -16,3 +16,9 @@ Dialog without Buttons --->>> 没有按钮的弹窗
 Main --->>> 主窗体(相当于易语言的新建窗口)
 
 Widget --->>> 次窗体(相当于易语言中主窗口外新建个窗体，可插入到主窗体中)
+
+#### 三、常用组件
+List Widget 列表框
+PushButton 按钮
+RadioButton 单选框
+CheckBox 选择框
