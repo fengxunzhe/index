@@ -97,7 +97,7 @@
 #### 4、查询表操作(查)	
 	SELECT * FROM USERINFO;   # 查询表信息
 
-## 六、字段操作(COLUMN)，针对表中已经定义好的字段
+## 六、字段操作(COLUMN)--->>>ALTER...ADD(增)|ALTER...DROP(删)|ALTER...ALTER COLUMN(改)|SELECT(查)
 #### 1、添加字段(增)
 	ALTER TABLE USERINFO   # 添加xxx字段
 	ADD XXX varchar(50) not null;
