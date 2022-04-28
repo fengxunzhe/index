@@ -79,7 +79,7 @@
 	nchar 固定unicode字符串 nchar(n)  n取值1~4000
 	nvarchar 可变长度  nvarchar(n|max) n取值1~4000 
 	
-## 五、表操作(table)
+## 五、表操作(table)--->>>CREATE(增)|DROP(删)|EXEC sp_rename(改)|SELECT(查)
 #### 1、创建表操作(增)
 	creat table userinfo(
 		ID int primary key not null,  # 主键
