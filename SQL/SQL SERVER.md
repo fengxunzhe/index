@@ -129,6 +129,16 @@
 		
 #### 4、查询字段(查)	
 
+## 七、主键和外键
+#### 1、主键
+	主键是表中的一个或多个字段，它的值用于唯一地标识表中的某一条记录，一个表只有一个主关键字
 
-	
+	ALTER table userinfo ADD CONSTRAIN Stu_Key PRIMARY KEY(ID); # Stu_Key主键关键字， ID是被设置为主键的字段   添加主键
+
+	ALTER table userinfo DROP CONSTRAIN Stu_Key; # 删除主键
+
+#### 2、外键
+	外键表示了两个关系之间的相互联系
+
+	ALTER table 次表 ADD CONSTRAIN Stu_Key FOREIGN KEY(次表字段) references 主表(主表字段)   # 次表字段 依赖于 主表字段
 	
