@@ -22,3 +22,7 @@ List Widget 列表框
 PushButton 按钮
 RadioButton 单选框
 CheckBox 选择框
+
+#### 四、PyQT5中布局UI文件转换为python文件
+默认安装PyQT5会安装pyuic5；使用pyuic5 -o 保存文件.py 要转换的文件.ui
+
