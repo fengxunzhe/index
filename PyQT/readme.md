@@ -62,5 +62,56 @@ CheckBox 选择框
         
 #### 六、PyQT5默认案例二
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/2.png)    
-        
 
+    # 按钮点击回调事件
+    def QueryMusic(self):
+        print("点击事件")
+        resp = requests.get("https://api.zhuolin.wang/api.php?callback=jQuery111305657767350626339_1651659515133&types"
+                            "=search&count=20&source=netease&pages=1&name=%E8%AE%B8%E5%B5%A9&_=1651659515135")
+        data = re.findall(self.Re, resp.text)
+        for r in data:
+            title = r[0].encode('utf8').decode('unicode-escape')
+            author = r[1].encode('utf8').decode('unicode-escape')
+            rorle = r[2].encode('utf8').decode('unicode-escape')
+            self.ui.listWidget.addItem(title + '---' + author + '---' + rorle)
+            
+     # 界面UI  
+     def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(459, 338)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget.setGeometry(QtCore.QRect(90, 60, 256, 192))
+        self.listWidget.setObjectName("listWidget")
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(150, 20, 113, 20))
+        self.lineEdit.setObjectName("lineEdit")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(280, 20, 61, 23))
+        self.pushButton.setObjectName("pushButton")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(90, 30, 54, 12))
+        self.label.setObjectName("label")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(90, 260, 75, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(270, 260, 75, 23))
+        self.pushButton_3.setObjectName("pushButton_3")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 459, 22))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+-------------------------------------------------------------------
+        self.retranslateUi(MainWindow)
+        # 注册按钮按钮点击事件
+        self.pushButton_2.clicked.connect(MainWindow.QueryMusic)
+        # 注册列表框点击事件
+        self.listWidget.itemDoubleClicked.connect(MainWindow.ClickItem)
+--------------------------------------------------------------------
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
