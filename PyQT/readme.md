@@ -59,4 +59,8 @@ CheckBox 选择框
         form.show()
         #进入程序的主循环，遇到退出情况，终止程序
         sys.exit(app.exec_())
+        
+#### 六、PyQT5默认案例二
+![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/2.png)    
+        
 
