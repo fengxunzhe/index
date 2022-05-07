@@ -134,4 +134,24 @@ CheckBox 选择框
 
             sys.exit(app.exec_())  # 进入程序的主循环，并通过exit确保主程序安全退出
 
+    方法2:
+        import sys
+
+        from PyQt5.QtWidgets import QApplication, QWidget
+
+
+        class Example(QWidget):
+            def __init__(self):
+                super(Example, self).__init__()
+                pass
+
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv) # 创建QApplication实例
+
+            ex = Example()  # 创建一个QWidget窗口对象
+            ex.show()  # 显示窗口
+
+            sys.exit(app.exec_())
+
     
