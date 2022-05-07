@@ -115,3 +115,23 @@ CheckBox 选择框
         self.listWidget.itemDoubleClicked.connect(MainWindow.ClickItem)
 --------------------------------------------------------------------
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        
+#### 六、PyQT5启动窗口原理
+    
+    方法1:
+        import sys
+
+        from PyQt5.QtWidgets import QApplication, QWidget
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv)  # 创建QApplication实例
+
+            win = QWidget()   # 创建一个窗口
+            win.resize(400, 300)  # 设置窗口大小
+            win.move(300, 300)  # 设置窗口位置
+            win.setWindowTitle("测试测试测试市场")  # 设置窗口标题
+            win.show()  # 显示窗口
+
+            sys.exit(app.exec_())  # 进入程序的主循环，并通过exit确保主程序安全退出
+
+    
