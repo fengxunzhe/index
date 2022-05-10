@@ -191,6 +191,6 @@ CheckBox 选择框
   
   
   ##### 8.1、QWidget
-  QWidget本身是一个空白窗口;继承QWidget后相关于在QWidget空白窗口中新增组件
+  QWidget本身是一个空白窗口;继承QWidget后相当于新建了个空白窗口，后面其他组件都会显示在该空白组件内
   
     
