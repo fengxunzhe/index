@@ -975,5 +975,18 @@ Python编程技巧汇总：
         b:   b" "前缀表示：后面字符串是bytes 类型。 response = b'<h1>Hello World!</h1>'     # b' ' 表示这是一个 bytes 对象
         u:   data = u'我是中文'  后面字符串以 Unicode格式进行编码，一般用在中文字符串前面，防止因为源码储存格式问题，导致再次使用时出现乱码。
        
-       
-       
+    3、类 和 对象的区别，类属性 和 对象属性的区别
+        class MyClass():
+          b = 100 # 类属性
+          def __init__(self):
+              self.a = 10 # 对象属性
+              
+        myClass = MyClass()  # 实例化对象
+        print(myClass.a) # 10  # 对象调用对象属性
+        print(myClass.b) # 100 # 对象调用类属性 
+        print(MyClass.b) # 100 # 类调用类属性 
+        print(MyClass.a) # type object 'MyClass' has no attribute 'a'  # 类调用对象方法
+        
+        # 类属性是指定义在类的内部⽽且在⽅法的外部的属性
+        # 对象属性是指定义在⽅法的内部的属性
+
