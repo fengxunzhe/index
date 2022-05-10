@@ -167,6 +167,7 @@ CheckBox 选择框
             #  进程已结束,退出代码1  程序异常退出是1 或者 是 十六进制代码
             #  app.exec_() 代表QApplication对象在正常运行中会处于无限循环中，在循环中监视消息事件(如点击，触摸等等事件)，直到程序异常，sys.exit捕捉异常代码
             # --------------------------------------------------------------------------
+            # 总结： 创建一个QApplication对象，该对象会处于无限循环中监视消息事件
  
  #### 七、Pycharm模板设置
  ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/3.png)
