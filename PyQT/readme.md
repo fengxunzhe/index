@@ -147,11 +147,22 @@ CheckBox 选择框
 
 
         if __name__ == '__main__':
-            app = QApplication(sys.argv) # 创建QApplication实例
+            app = QApplication(sys.argv) # 创建QApplication实例  
+            
+            # print(sys.argv)      sys.argv 是默认接收控制台下面输出的参数       
+            # PS C:\Users\zy\Downloads\PyQt5_example-main\PyQt5_example-main> PYTHON test002.py   1  2  3
+            # ['test002.py', '1', '2', '3']
+            # print(QApplication(sys.argv))   <PyQt5.QtWidgets.QApplication object at 0x000001D61F8B3F78>    QApplication创建一个应用程序对象
+
 
             ex = Example()  # 创建一个QWidget窗口对象
             ex.show()  # 显示窗口
 
             sys.exit(app.exec_())
+            
+            #   sys.exit 是python程序退出时执行  print(sys.exit())
+            #  进程已结束,退出代码0  正常退出是0
+            #  进程已结束,退出代码1  程序异常退出是1 或者 是 十六进制代码
+            #  app.exec_() 代表QApplication对象在正常运行中会处于无限循环中，在循环中监视消息事件(如点击，触摸等等事件)，直到程序异常，sys.exit捕捉异常代码
 
     
