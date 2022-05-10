@@ -172,5 +172,7 @@ CheckBox 选择框
  ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/3.png)
  
  第三步：在Pycharm中输入 qaa 会自动调用该模板
+ 
  第五步：代码模板
+ 
  第六步：模板适用范围
