@@ -999,15 +999,15 @@ Python编程技巧汇总：
 
             # 而使用@staticmethod或@classmethod，就可以不需要实例化，直接类名.方法名()来调用
 
-            @classmethod
+            @classmethod   # 类方法
             def get_age(cls):
                 print("get___age")
 
-            @staticmethod
+            @staticmethod   # 静态方法
             def set_age():
                 print("set---age")
 
-            def del_age(self):
+            def del_age(self):  # 普通方法
                 print("del---age")
 
 
@@ -1025,4 +1025,5 @@ Python编程技巧汇总：
           # print(A.del_age())   # TypeError: set_age() missing 1 required positional argument: 'self'
 
 ## 使用@staticmethod或@classmethod，就可以不需要实例化，直接类名.方法名()来调用   对象名.方法名调用
-
+## 普通方法  只有对象能调用   类不能直接调用
+## 类属性对象可调用，对象属性类不能直接调用
