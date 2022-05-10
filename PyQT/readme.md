@@ -183,9 +183,10 @@ CheckBox 选择框
                                 |
                               QWidget
                                 |
-    QButtonBox--QGroupBox--QDialog--QDockWidget--QMainWindow--QMenu--......
-
-  
-  
+    QAbatractButton-----QFrame-----QAbstractSlider-----QDiglog-----QMenu--......
+           |               |               
+       QPushButton  QAbstractScrollArea
+                           |
+                QAbstractItemView--QTextView 
   
   
