@@ -989,4 +989,40 @@ Python编程技巧汇总：
         
         # 类属性是指定义在类的内部⽽且在⽅法的外部的属性
         # 对象属性是指定义在⽅法的内部的属性
+        
+ ----------------------------------------------------------------------------------------       
+        class A(object):
+            num = 100
+
+            def __init__(self):
+                self.age = 200
+
+            # 而使用@staticmethod或@classmethod，就可以不需要实例化，直接类名.方法名()来调用
+
+            @classmethod
+            def get_age(cls):
+                print("get___age")
+
+            @staticmethod
+            def set_age():
+                print("set---age")
+
+            def del_age(self):
+                print("del---age")
+
+
+      if __name__ == '__main__':
+          tmp = A()
+          # print(tmp.age)  # 调用对象属性 age   --->>> 200
+          # print(tmp.num)  # 调用类属性 num   --->>> 100
+          print(tmp.set_age())
+          print(tmp.get_age())
+          print(tmp.del_age())
+
+          print(A.num)  # 调用类属性 num 100
+          print(A.get_age())
+          print(A.set_age())
+          # print(A.del_age())   # TypeError: set_age() missing 1 required positional argument: 'self'
+
+## 使用@staticmethod或@classmethod，就可以不需要实例化，直接类名.方法名()来调用   对象名.方法名调用
 
