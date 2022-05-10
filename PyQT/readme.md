@@ -116,7 +116,7 @@ CheckBox 选择框
 --------------------------------------------------------------------
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         
-#### 六、PyQT5启动窗口原理
+#### 六、PyQT5启动窗口原理（*重要）
     
     方法1:
         import sys
