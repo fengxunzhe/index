@@ -144,7 +144,12 @@ CheckBox 选择框
             def __init__(self):
                 super(Example, self).__init__()
                 pass
-
+            # --------------------------------------------------------------------------
+            # 对象在创建后初始化默认调用__init__方法，调用父类super即QWidget的初始化方法可以新建个空白窗口
+            # slef是QWidget对象，此处可通过
+            # self.resize(400, 300)   self..setWindowTitle("测试测试测试市场") 等等重新修改空白窗口属性
+            # 想当于win = QWidget()  win.resize(400, 300)  等等 /win = QWidget win是一个QWidget对象， self继承了QWidget，拥有父类的属性和方法，所以self相当于QWidget
+            # --------------------------------------------------------------------------
 
         if __name__ == '__main__':
             app = QApplication(sys.argv) # 创建QApplication实例  
