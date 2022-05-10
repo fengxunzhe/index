@@ -190,3 +190,7 @@ CheckBox 选择框
                 QAbstractItemView--QTextView 
   
   
+  ##### 8.1、QWidget
+  QWidget本身是一个空白窗口;继承QWidget后相关于在QWidget空白窗口中新增组件
+  
+    
