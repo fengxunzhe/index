@@ -179,11 +179,11 @@ CheckBox 选择框
  第六步：模板适用范围
  
   #### 八、PyQT5  API
-                          QObject
-                            |
-                          QWidget
-                            |
-QButtonBox--QGroupBox--QDialog--QDockWidget--QMainWindow--QMenu--......
+                              QObject
+                                |
+                              QWidget
+                                |
+    QButtonBox--QGroupBox--QDialog--QDockWidget--QMainWindow--QMenu--......
 
   
   
