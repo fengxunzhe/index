@@ -209,5 +209,9 @@ qrc(资源图片文件)--->>>Py文件===默认安装PyQT5会安装pyrcc5；使�
 #### 九、信号 和 槽
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/4.png)
 
+第二步: pushButton发送一个点击事件的信号--->>> 即按钮被点击
 
+第五步: 槽  即按钮被点击后触发的操作，这里自定义为Login函数，点击之后调用Login函数
+
+第六步: 方框中都是系统默认推荐的
 
