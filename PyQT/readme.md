@@ -6,7 +6,7 @@
     在qt5-applications--QT--bin中使用designer
     
 ###### 2.2、 Pycharm中配置
-
+![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/5.png)
    
 #### 三、窗体介绍
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/1.png)
@@ -31,7 +31,8 @@ RadioButton 单选框
 CheckBox 选择框
 
 #### 四、PyQT5中布局UI文件转换为python文件
-默认安装PyQT5会安装pyuic5；使用pyuic5 -o 保存文件.py 要转换的文件.ui
+UI--->>>Py文件===默认安装PyQT5会安装pyuic5；使用pyuic5 -o 保存文件.py 要转换的文件.ui
+qrc(资源图片文件)--->>>Py文件===默认安装PyQT5会安装pyrcc5；使用pyrcc5 -o 保存文件.py 要转换的文件.qrc  (图片在转为py后会以二进制储存)
 
 #### 五、PyQT5默认案例
 #下面这行代码是为了避免在所生成的pyqt中出现中文乱码的问题
