@@ -199,7 +199,7 @@ CheckBox 选择框
   QWidget本身是一个空白窗口;继承QWidget后相当于新建了个空白窗口，后面其他组件都会显示在该空白组件内
   
 #### 九、信号 和 槽
-
+![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/4.png)
 
 
 
