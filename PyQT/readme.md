@@ -7,6 +7,7 @@
     
 ###### 2.2、 Pycharm中配置
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/5.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/6.png)
    
 #### 三、窗体介绍
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/1.png)
