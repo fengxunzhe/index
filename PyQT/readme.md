@@ -2,7 +2,11 @@
     pyqt5 和  pyqt-tools （pip install xxx）
     
 #### 二、使用QT designer
+###### 2.1、直接使用desinger
     在qt5-applications--QT--bin中使用designer
+    
+###### 2.2、 Pycharm中配置
+
    
 #### 三、窗体介绍
 ![imag](https://github.com/fengxunzhe/index/blob/main/PyQT/img/1.png)
