@@ -35,3 +35,59 @@ if __name__ == '__main__':
     # 第三步   加载主窗口
 
     sys.exit(example.exec_())  # 第四步 进入主循环  相当于sys.exit(app.exec_())  app是QApplication对象  example是app是QApplication子类的对象
+    
+    
+=====================================进度条
+
+import time
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QSplashScreen
+
+
+class SplashScreen(QSplashScreen):
+    def __init__(self):
+        super(SplashScreen, self).__init__()
+
+        pixmap = QPixmap("./1.png")
+        self.setPixmap(pixmap)
+        self.labelAlignment = int(Qt.AlignBottom | Qt.AlignHCenter | Qt.AlignAbsolute)
+        self.show()
+        QApplication.flush()
+
+    def showMessage(self, msg):
+        """Show the progress message on the splash image"""
+        super(SplashScreen, self).showMessage(msg, self.labelAlignment, Qt.white)
+        QApplication.processEvents()
+
+    def clearMessage(self):
+        """Clear message on the splash image"""
+        super(SplashScreen, self).clearMessage()
+        QApplication.processEvents()
+
+    def setProgressText(self, percent, delay=0.1):
+        time.sleep(delay)  # 延时，给查看splashscreen更新数值
+        self.showMessage("正在加载 ... {0}%".format(percent))
+
+    def loadProgress(self):
+        self.setProgressText(0, 0)
+        time.sleep(0.1)
+        self.setProgressText(5)
+        time.sleep(0.1)
+        self.setProgressText(10)
+        time.sleep(0.1)
+        self.setProgressText(15)
+        time.sleep(0.1)
+        self.setProgressText(20)
+        # preimport(["torch"])
+        self.setProgressText(40)
+        time.sleep(0.1)
+        self.setProgressText(60)
+        time.sleep(0.1)
+        self.setProgressText(80)
+        time.sleep(0.1)
+        self.setProgressText(100)
+        self.hide()
+
+
+
