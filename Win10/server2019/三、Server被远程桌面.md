@@ -5,6 +5,10 @@
 ###### windows server 默认只允许2个用户可以同时远程桌面，多了则不可以登录
 ###### 参考：https://www.bilibili.com/video/BV175411b7De/?spm_id_from=333.788.recommend_more_video.3
 
-###### 1、
+###### 1、添加远程桌面服务
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/44.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/44.png)
+
+其他一路next;重启生效
 ###### 2、
 
