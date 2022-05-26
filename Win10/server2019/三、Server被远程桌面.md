@@ -6,9 +6,12 @@
 ###### 参考：https://www.bilibili.com/video/BV175411b7De/?spm_id_from=333.788.recommend_more_video.3
 
 ###### 1、添加远程桌面服务
-![imag](https://github.com/fengxunzhe/index/blob/main/Win10/44.png)
-![imag](https://github.com/fengxunzhe/index/blob/main/Win10/44.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/66.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/77.png)
 
 其他一路next;重启生效
-###### 2、
+###### 2、修改组策略
+
+gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程桌面服务 --- 远程桌面会话主机 --- 连接 --- 限制连接的数量 --- 已启用(勾选),运行最大远程连接数99999
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/88.png)
 
