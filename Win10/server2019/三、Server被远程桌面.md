@@ -15,3 +15,9 @@
 gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程桌面服务 --- 远程桌面会话主机 --- 连接 --- 限制连接的数量 --- 已启用(勾选),运行最大远程连接数99999
 ![imag](https://github.com/fengxunzhe/index/blob/main/Win10/88.png)
 
+###### 3、RD授权
+
+control --->>> 管理工具 --- 远程桌面服务 --- 远程桌面授权管理器 --- 激活服务器 --- 公司信息(随便填) --- 一路next ---添加许可证代码 -- 许可证计划(选择企业协议) --- 填信息后勾选完成重建RD信息
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/99.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/100.png)
+
