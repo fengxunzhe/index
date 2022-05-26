@@ -32,7 +32,7 @@ gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程
 gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程桌面服务 --- 远程桌面会话主机 --- 授权 --- 隐藏有关RD授权。。。 --- 已启用(勾选)
 
 gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程桌面服务 --- 远程桌面会话主机 --- 会花时间限制 ---设置已中断会话时间限制--15分钟
-![imag](https://github.com/fengxunzhe/index/blob/main/Win10/120.png)
+![imag](https://github.com/fengxunzhe/index/blob/main/Win10/140.png)
 
 gpedit.msc --- >>> 计算机配置 --- 管理模板 --- windows组件 --- 远程桌面服务 --- 远程桌面会话主机 --- 会花时间限制 ---设置活动但空闲的远程桌面会话事件限制--15分钟
 ![imag](https://github.com/fengxunzhe/index/blob/main/Win10/150.png)
