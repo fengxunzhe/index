@@ -121,8 +121,23 @@ qrc(资源图片文件)--->>>Py文件===默认安装PyQT5会安装pyrcc5；使�
         self.pushButton_2.clicked.connect(MainWindow.QueryMusic)
         # 注册列表框点击事件
         self.listWidget.itemDoubleClicked.connect(MainWindow.ClickItem)
+         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+         
+ -------------------------------------------------------------------       
+         class example(QMainWindow):
+            def __init__(self):
+                super(example, self).__init__()
+                self.doc_Windows = Ui_MainWindow()
+                # 加载test.ui界面
+                self.doc_Windows.setupUi(self)
+                # 取数据
+                print("读取数据中")
+                self.res = getDataBase()
+                
+         加载界面UI
+         
 --------------------------------------------------------------------
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+      
         
 #### 六、PyQT5启动窗口原理（*重要）
     
