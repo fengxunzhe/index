@@ -230,3 +230,8 @@ qrc(资源图片文件)--->>>Py文件===默认安装PyQT5会安装pyrcc5；使�
 
 第六步: 方框中都是系统默认推荐的
 
+#### 十、常用API
+
+# 设置整行选择
+self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+self.tableWidget.setSelectionMode(QAbstractItemView.SingleSelection)
