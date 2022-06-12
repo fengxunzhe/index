@@ -242,3 +242,6 @@ self.tableWidget.setSelectionMode(QAbstractItemView.SingleSelection)
 
 self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
+//禁用窗口最大化
+
+MainWindow.setFixedSize(MainWindow.width(), MainWindow.height())
