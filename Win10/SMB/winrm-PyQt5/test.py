@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QAbstractItemView
 
 
@@ -30,6 +31,9 @@ class Ui_MainWindow(object):
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setRowCount(0)
+
+        self.tableWidget.setColumnWidth(3, 245)
+
         self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.tableWidget.setSelectionMode(QAbstractItemView.SingleSelection)
@@ -66,7 +70,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, item)
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QtCore.QRect(10, 0, 700, 51))
-        self.groupBox_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.groupBox_2.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.groupBox_2.setObjectName("groupBox_2")
         self.btn_select = QtWidgets.QPushButton(self.groupBox_2)
         self.btn_select.setGeometry(QtCore.QRect(560, 20, 75, 23))
@@ -93,7 +97,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow1111"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "共享文件管理"))
+        MainWindow.setWindowIcon(QIcon("./re.png"))
         self.groupBox.setTitle(_translate("MainWindow", "data"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "文本ID"))
@@ -112,6 +117,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
