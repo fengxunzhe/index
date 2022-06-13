@@ -50,7 +50,7 @@ class example(QMainWindow):
 
     # 执行cmd命令
     def execu_cmd(self, cmdfile):
-        print(cmdfile)
+        self.dataBase = []  # 每次查询之前清空之前存储的数据
         r = self.s.run_cmd(cmdfile)
         code = r.status_code
         content = r.std_out if code == 0 else r.std_err
@@ -61,18 +61,21 @@ class example(QMainWindow):
 
     # 处理远程返回数据
     def del_res(self, res):
+        # print("===", "处理远程返回数据", res)
         if "Error" in res:
+            self.del_All_row()
             msg_box = QMessageBox.warning(self, "错误信息", res, QMessageBox.Cancel)
         if "没有找到打开的共享文件" in res:
+            self.del_All_row()
             msg_box = QMessageBox.warning(self, "提示信息", "没有找到打开的共享文件！", QMessageBox.Cancel)
         else:
             data_string = res.split("====================================")[-1].strip()
-            # print("===", data_string)
             import re
             res = re.compile(r'(?P<id>\d+)\s+(?P<user>\S+)\s+(?P<pla>\S+)\s+(?P<doc>\S+)',
                              re.S)  # .不匹配换行符,re.S 代表.匹配换行符
             # 通过?P<link>设置定位.通过group(定位符) 定位
-
+            #  每次插入前先清空
+            self.del_All_row()
             data = res.finditer(data_string)
             # print(data)
             for y in data:
@@ -111,39 +114,37 @@ class example(QMainWindow):
         delete_all = pop_menu.addAction("关闭所有文件")
         delete_sel = pop_menu.addAction("关闭选中文件")
         # 1、判断有没有选中文件
-        # 2、openfiles Disconnect /ID 88  断开连接
+        # 2、OPENFILES Disconnect /ID 88  断开连接
         action = pop_menu.exec_(self.doc_Windows.tableWidget.mapToGlobal(pos))
 
         if action == delete_sel:
-            self.close_file()
+            current_row = self.doc_Windows.tableWidget.currentRow()  # 获取鼠标选中的行
+            content = self.doc_Windows.tableWidget.item(current_row, 0).text()  # 取鼠标选中行的ID
+            text = self.execu_cmd("OPENFILES /Disconnect /ID " + content)
+            if "连接已中断" in text:
+                self.del_res(self.execu_cmd('openfiles'))
+
+            # self.close_file()
         if action == delete_all:
-            self.close_file()
+            sun = self.doc_Windows.tableWidget.rowCount()
+            self.close_file(sun)
 
 
     # 关闭数据
-    def close_file(self):
-        pass
-        # action == delete_event:
-        # r = QMessageBox.warning(self, "注意", "删除可不能恢复了哦！", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-        # if r == QMessageBox.No:
-        #     return
-        # items = self.tableWidget.selectedItems()
-        # if items:
-        #     selected_rows = []
-        #     for i in items:
-        #         row = i.row()
-        #         print(row, 'row---->>>>>')  # 记录是第几条记录
-        #         if row not in selected_rows:
-        #             selected_rows.append(row)  # 把row id全集中
-        #     selected_rows = sorted(selected_rows, reverse=True)
-        #     for r in selected_rows:
-        #         sid = self.tableWidget.item(r, 0).text()
-        #         del data[sid]
-        #         self.tableWidget.removeRow(r)
+    def close_file(self, num):
+        # print(num, "所有行数")
+        for x in range(0, num):
+            content = self.doc_Windows.tableWidget.item(x, 0).text()  # 取所有行的ID
+            text = self.execu_cmd("OPENFILES /Disconnect /ID " + content)
+            # print(text)
+            if x == num-1:
+                print("已关闭所有")
+                self.del_res(self.execu_cmd('openfiles'))
+                break
+
 
     # 插入表格数据
     def inser_row(self, row, sid, name, sex, address):
-        # 插入数据到里面前，需要先把dataBae清空  待做
         sid_item = QTableWidgetItem(sid)
         name_item = QTableWidgetItem(name)
         sex_item = QTableWidgetItem(sex)
@@ -166,7 +167,7 @@ class example(QMainWindow):
         # 填了筛选工号的时候
         print('点击了查询按钮')
         self.del_All_row()
-        self.dataBase = []  # 每次查询之前清空之前存储的数据
+
         data = self.execu_cmd("openfiles")
         self.del_res(data)  # 处理取得的数据
         input_text = self.doc_Windows.line_filter.text()  # 取出填入的筛选条件
