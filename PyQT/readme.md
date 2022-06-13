@@ -230,7 +230,7 @@ qrc(资源图片文件)--->>>Py文件===默认安装PyQT5会安装pyrcc5；使�
 
 第六步: 方框中都是系统默认推荐的
 
-#### 十、常用API
+#### 十、常用表格API
 
 //设置表格整行选择
 
@@ -245,3 +245,12 @@ self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 //禁用窗口最大化
 
 MainWindow.setFixedSize(MainWindow.width(), MainWindow.height())
+
+//设置第三个的列宽
+
+self.tableWidget.setColumnWidth(3, 245)
+
+//设置窗口ICO
+
+MainWindow.setWindowIcon(QIcon("./re.png"))
+
