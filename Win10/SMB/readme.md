@@ -62,123 +62,206 @@ password = "Wh123456"
 //# -*- coding: utf-8 -*-
 
 //# 依赖安装
+
 //# pip3 install pysmb pyasn1
 
 //# 特殊提醒目录或文件名不要用smb、smb.py,否则会和引用包冲突
+
 import os
+
 import traceback
+
 from smb.SMBConnection import SMBConnection
+
 from smb.base import SharedDevice
 
 //# 全部共享文件夹目录，缓存用
+
 shared_dirs = []
 
 
 //# 遍历
+
 def walk_path(dir, path):
+
     dirs = []
+    
     files = []
+    
     print('Walking path:', path)
+    
     os.system('pause')
+    
     for p in conn.listPath(dir, path):
+    
         # 排除.和..
+        
         if p.filename != '.' and p.filename != '..':
+        
             parentPath = path
+            
             if not parentPath.endswith('/'):
+            
                 parentPath += '/'
+                
             if p.isDirectory:
+            
                 # print('{}{}'.format(path,p.filename))
+                
                 # dirs.append('{}{}'.format(path,p.filename))
+                
                 dirs.append(p.filename)
+                
                 # 递归，如果单层显示，可以不用！！！
+                
                 walk_path(dir, parentPath + p.filename)
+                
             else:
+            
                 # print('{}'.format(p.filename))
+                
                 files.append(p.filename)
+                
         else:
+        
             # print("特殊目录：",p.filename)
+            
             pass
+            
     # 排序文件夹和文件
+    
     dirs.sort()
+    
     files.sort()
 
     print('----[文件夹]----')
+    
     for dir in dirs:
+    
         print(dir)
+        
     print('----[文件]----')
+    
     for file in files:
+    
         print(file)
 
 
    if __name__ == "__main__":
 
     # ip或域名
+    
     host = 'Phu2pid1'
+    
     username = "xxxxx"
+    
     password = "Wh123456"
+    
     try:
+    
         # with方式，使用后自动close连接
+        
         with SMBConnection(username, password, "", use_ntlm_v2=True, is_direct_tcp=True, remote_name="Phu2pid1", domain="YMTC.LOCAL") as conn:
+        
             result = conn.connect(host, 445)  # smb协议默认端口445
+            
             if result:
+            
                 print("登录成功")
+                
                 shares = conn.listShares()
 
 
                 for share in shares:
+                
                     # 只记录共享文件夹
+                    
                     print(share.type, share.name)
+                    
                     os.system('pause')
+                    
                     if share.type == SharedDevice.DISK_TREE:
+                    
                         shared_dirs.append({'name': share.name, 'comments': share.comments})
 
                         # print(share.comments)  介绍
+                        
                     # 其他共享 如打印机 IPC$ 等
+                    
                     else:
+                    
                         # print(share.name)
+                        
                         # print(share.comments )
+                        
                         pass
 
 
                 print("shared_dirs", shared_dirs)
+                
                 # 有共享文件夹时候才遍历
+                
                 if len(shared_dirs) > 0:
+                
                     for dir in shared_dirs:
+                    
                         print("共享文件夹：", dir)
+                        
                         shared_folder = dir['name']
+                        
                         # 调用遍历方法
+                        
                         walk_path(dir['name'], '/')
+                        
                 else:
+                
                     print("没有发现共享文件夹")
 
             else:
+            
                 print("登录失败")
+                
     except Exception as e:
+    
         print("连接异常:")
+        
         traceback.print_exc()
+        
         print(e)
         
 --------------------------【wmi链接】--------------------
 
 import wmi
+
 from win32com.client import GetObject
 
 
 def sys_version(ipaddress, user, password):
+
     try:
+    
         conn = wmi.WMI(computer=ipaddress, user=user, password=password)
+        
         print(conn)
+        
         for sys in conn.Win32_OperatingSystem():
+        
             print("Version:%s" % sys.Caption, "Vernum:%s" % sys.BuildNumber)  # 系统信息
+            
             print(sys.OSArchitecture.encode("UTF8"))  # 系统的位数
+            
             print(sys.NumberOfProcesses)  # 系统的进程数
 
             # filename = r"C:	est.bat"  # 此文件在远程服务器上
+            
             # cmd_callbat = r"cmd /c call %s" % filename
             
             # CC = GetObject("winmgmts:/root/cimv2")
+            
             # processes = CC.ExecQuery("Select * from Win32_Process")
+            
             # for process in processes:
+            
             #    print(process.ProcessID, process.Name)
             
             
@@ -186,13 +269,19 @@ def sys_version(ipaddress, user, password):
             text = r"cmd.exe /c openfiles>c:\result.txt"
             
             # print(conn.Win32_ClusterShare())
+            
             # print(cmd_callbat)
+            
             id, value = conn.Win32_Process.Create(CommandLine=text)  # 执行bat文件   Win32_Process.Create
+            
             print(id, value)
+            
     except Exception as e:
+    
         print(e)
 
 if __name__ == '__main__':
+
     sys_version(ipaddress="xxxx", user="xxxx", password="Ymtc2022wh")
 
 -------------------------------------------------------------------------
