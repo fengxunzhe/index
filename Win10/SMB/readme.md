@@ -59,22 +59,22 @@ password = "Wh123456"
    4、winrm  可行
    
 ---------------------【SMB连接】-------------------------------------------
-# -*- coding: utf-8 -*-
+//# -*- coding: utf-8 -*-
 
-# 依赖安装
-# pip3 install pysmb pyasn1
+//# 依赖安装
+//# pip3 install pysmb pyasn1
 
-# 特殊提醒目录或文件名不要用smb、smb.py,否则会和引用包冲突
+//# 特殊提醒目录或文件名不要用smb、smb.py,否则会和引用包冲突
 import os
 import traceback
 from smb.SMBConnection import SMBConnection
 from smb.base import SharedDevice
 
-# 全部共享文件夹目录，缓存用
+//# 全部共享文件夹目录，缓存用
 shared_dirs = []
 
 
-# 遍历
+//# 遍历
 def walk_path(dir, path):
     dirs = []
     files = []
@@ -114,7 +114,7 @@ def walk_path(dir, path):
 
     # ip或域名
     host = 'Phu2pid1'
-    username = "L10570009"
+    username = "xxxxx"
     password = "Wh123456"
     try:
         # with方式，使用后自动close连接
@@ -158,7 +158,45 @@ def walk_path(dir, path):
         traceback.print_exc()
         print(e)
         
-----------------------------------------------
+--------------------------【wmi链接】--------------------
+
+import wmi
+from win32com.client import GetObject
+
+
+def sys_version(ipaddress, user, password):
+    try:
+        conn = wmi.WMI(computer=ipaddress, user=user, password=password)
+        print(conn)
+        for sys in conn.Win32_OperatingSystem():
+            print("Version:%s" % sys.Caption, "Vernum:%s" % sys.BuildNumber)  # 系统信息
+            print(sys.OSArchitecture.encode("UTF8"))  # 系统的位数
+            print(sys.NumberOfProcesses)  # 系统的进程数
+
+            # filename = r"C:	est.bat"  # 此文件在远程服务器上
+            # cmd_callbat = r"cmd /c call %s" % filename
+            
+            # CC = GetObject("winmgmts:/root/cimv2")
+            # processes = CC.ExecQuery("Select * from Win32_Process")
+            # for process in processes:
+            #    print(process.ProcessID, process.Name)
+            
+            
+
+            text = r"cmd.exe /c openfiles>c:\result.txt"
+            
+            # print(conn.Win32_ClusterShare())
+            # print(cmd_callbat)
+            id, value = conn.Win32_Process.Create(CommandLine=text)  # 执行bat文件   Win32_Process.Create
+            print(id, value)
+    except Exception as e:
+        print(e)
+
+if __name__ == '__main__':
+    sys_version(ipaddress="xxxx", user="xxxx", password="Ymtc2022wh")
+
+-------------------------------------------------------------------------
+
 
 
 
